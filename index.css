@@ -1,0 +1,22 @@
+#profile {
+  background-color: var(--bs-gray-100);
+}
+
+#profile-img {
+  width: 300px;
+}
+
+.social-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.vertical-card-img {
+  overflow: hidden;
+  vertical-align: middle;
+  border-radius: var(--bs-border-radius) 0 0 var(--bs-border-radius);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
