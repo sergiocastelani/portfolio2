@@ -1,9 +1,19 @@
 html {
   --my-primary: #86af49;
+  --my-secondary: rgb(117, 153, 64);
 }
 
 main {
   box-shadow: 0px 20px 20px 11px #f1f1f1;
+}
+
+a {
+  color: var(--my-primary);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--my-secondary);
+  text-decoration: underline;
 }
 
 strong {
