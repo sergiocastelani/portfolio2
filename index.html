@@ -13,9 +13,9 @@
 </head>
 <body>
 
-  <main class="container-lg">
-    <section id="profile" class="row m-5">
-      <div class="col-8">
+  <main class="container-lg p-5 pb-0">
+    <section id="profile" class="row p-3 g-3">
+      <div class="col-12 col-md-8">
         <h1>Sérgio C Castleani Jr</h1>
         <h3 class="mb-3 fw-light">Senior Software Engineer</h3>
 
@@ -37,16 +37,16 @@
         </a>
 
       </div>
-      <div class="col-4">
+      <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
         <img id="profile-img" src="./images/photo.png">
       </div>
     </section>
 
-    <section class="m-5">
+    <section class="p-3 mt-5">
       <h2 class="border-start mb-5 ps-3 border-5 border-primary fw-bold">Strongest Hard skills</h2>
-      <div class="row">
+      <div class="row p-3 g-3">
 
-        <div class="col-4">
+        <div class="col-12 col-md-4">
           <div class="card h-100">
             <img src="./images/desktop.jpg" class="card-img-top" alt="desktop development">
             <div class="card-body">
@@ -63,7 +63,7 @@
           </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-12 col-md-4">
           <div class="card h-100">
             <img src="./images/web-dev.jpeg" class="card-img-top" alt="web development">
             <div class="card-body">
@@ -81,7 +81,7 @@
           </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-12 col-md-4">
           <div class="card h-100">
             <img src="./images/so.jpg" class="card-img-top" alt="Operating Systems">
             <div class="card-body">
@@ -98,7 +98,7 @@
       </div>
     </section>
 
-    <section class="m-5">
+    <section class="p-3 mt-5">
       <h2 class="border-start mb-5 ps-3 border-5 border-primary fw-bold">Objectives</h2>
 
       <ul id="objectives-list" class="fs-5">
@@ -117,19 +117,23 @@
       </ul>
     </section>
 
-    <section class="m-5">
+    <section class="p-3 mt-5">
       <h2 class="border-start mb-5 ps-3 border-5 border-primary fw-bold">Showcase</h2>
 
-      <div class="container p-0">
+      <div class="container">
         <div class="row g-3">
-          <div class="col-6">
+          <div class="col-12 col-lg-6">
             <div class="card h-100">
-              <div class="row g-0">
-                <div class="col-md-4 project-card-img" style="background-image: url(./images/projects/spiderman.png);">
+              <div class="row g-0 h-100">
+                <div 
+                  class="col-md-4 project-card-img" 
+                  style="background-image: url(./images/projects/spiderman.png);"
+                  onclick="window.open('https://sergiocastelani.github.io/spiderman-fanpage/','_blank')"
+                >
                   <div class="project-img-overlay">
-                    <a class="btn btn-dark" href="https://sergiocastelani.github.io/spiderman-fanpage/" target="_blank">
+                    <div class="btn btn-dark">
                       <i class="bi bi-eye-fill"></i> View
-                    </a>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-8">
@@ -143,14 +147,18 @@
             </div>
           </div>
 
-          <div class="col-6">
+          <div class="col-12 col-lg-6">
             <div class="card h-100">
-              <div class="row g-0">
-                <div class="col-md-4 project-card-img" style="background-image: url(./images/projects/rickandmorty.png);">
+              <div class="row g-0 h-100">
+                <div 
+                  class="col-md-4 project-card-img" 
+                  style="background-image: url(./images/projects/rickandmorty.png);"
+                  onclick="window.open('https://rickmorty.castelani.dev.br/','_blank')"
+                >
                   <div class="project-img-overlay">
-                    <a class="btn btn-dark" href="https://rickmorty.castelani.dev.br/" target="_blank">
+                    <div class="btn btn-dark">
                       <i class="bi bi-eye-fill"></i> View
-                    </a>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-8">
@@ -164,14 +172,18 @@
             </div>
           </div>
           
-          <div class="col-6">
+          <div class="col-12 col-lg-6">
             <div class="card h-100">
-              <div class="row g-0">
-                <div class="col-md-4 project-card-img" style="background-image: url(./images/projects/vweb.png);">
+              <div class="row g-0 h-100">
+                <div 
+                  class="col-md-4 project-card-img" 
+                  style="background-image: url(./images/projects/vweb.png);"
+                  onclick="window.open('https://vweb-castelani.netlify.app/','_blank')"
+                >
                   <div class="project-img-overlay">
-                    <a class="btn btn-dark" href="https://vweb-castelani.netlify.app/" target="_blank">
+                    <div class="btn btn-dark">
                       <i class="bi bi-eye-fill"></i> View
-                    </a>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-8">
@@ -185,14 +197,18 @@
             </div>
           </div>
           
-          <div class="col-6">
+          <div class="col-12 col-lg-6">
             <div class="card h-100">
-              <div class="row g-0">
-                <div class="col-md-4 project-card-img" style="background-image: url(./images/projects/nikel.png);">
+              <div class="row g-0 h-100">
+                <div 
+                  class="col-md-4 project-card-img" 
+                  style="background-image: url(./images/projects/nikel.png);"
+                  onclick="window.open('https://castelani-nikel.netlify.app','_blank')"
+                >
                   <div class="project-img-overlay">
-                    <a class="btn btn-dark" href="https://castelani-nikel.netlify.app/" target="_blank">
+                    <div class="btn btn-dark">
                       <i class="bi bi-eye-fill"></i> View
-                    </a>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-8">
@@ -211,14 +227,18 @@
             </div>
           </div>
           
-          <div class="col-6">
+          <div class="col-12 col-lg-6">
             <div class="card h-100">
-              <div class="row g-0">
-                <div class="col-md-4 project-card-img" style="background-image: url(./images/projects/bat-flappy.png);">
+              <div class="row g-0 h-100">
+                <div 
+                  class="col-md-4 project-card-img" 
+                  style="background-image: url(./images/projects/bat-flappy.png);"
+                  onclick="window.open('https://bat-flappy.castelani.dev.br/','_blank')"
+                >
                   <div class="project-img-overlay">
-                    <a class="btn btn-dark" href="https://bat-flappy.castelani.dev.br/" target="_blank">
+                    <div class="btn btn-dark">
                       <i class="bi bi-eye-fill"></i> View
-                    </a>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-8">
@@ -235,14 +255,18 @@
             </div>
           </div>
           
-          <div class="col-6">
+          <div class="col-12 col-lg-6">
             <div class="card h-100">
-              <div class="row g-0">
-                <div class="col-md-4 project-card-img" style="background-image: url(./images/projects/dom_challenge.png);">
+              <div class="row g-0 h-100">
+                <div 
+                  class="col-md-4 project-card-img" 
+                  style="background-image: url(./images/projects/dom_challenge.png);"
+                  onclick="window.open('https://sergiocastelani.github.io/dom_game/','_blank')"
+                >
                   <div class="project-img-overlay">
-                    <a class="btn btn-dark" href="https://sergiocastelani.github.io/dom_game/" target="_blank">
+                    <div class="btn btn-dark">
                       <i class="bi bi-eye-fill"></i> View
-                    </a>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-8">
@@ -259,7 +283,7 @@
       </div>
     </section>
 
-    <footer class="p-5 pb-1 text-center">
+    <footer class="mt-5 text-center">
       <small class="blockquote-footer">Sérgio C Castelani Jr (2023)</small>
     </footer>
   </main>

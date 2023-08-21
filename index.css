@@ -3,7 +3,7 @@ html {
 }
 
 main {
-  box-shadow: 0px 20px 20px 11px #f1f1f1  
+  box-shadow: 0px 20px 20px 11px #f1f1f1;
 }
 
 strong {
@@ -16,7 +16,8 @@ strong {
 }
 
 #profile-img {
-  width: 300px;
+  width: 95%;
+  max-width: 300px;
 }
 
 #objectives-list {
@@ -49,6 +50,7 @@ strong {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .project-img-overlay {
@@ -74,4 +76,12 @@ strong {
 
 .border-primary {
   border-color: var(--my-primary) !important;
+}
+
+/* responsiveness */
+@media (max-width: 768px) {
+  .project-card-img {
+    border-radius: var(--bs-border-radius) var(--bs-border-radius) 0 0;
+    min-height: 180px;
+  }
 }
