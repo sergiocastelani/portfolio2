@@ -33,25 +33,6 @@ strong {
   height: auto; /* keep the square ratio when the width/height attributes are present */
 }
 
-#objectives-list {
-  list-style-type: none;
-  margin-top: -1em;
-}
-#objectives-list li {
-  line-height: 2rem;
-  margin-bottom: 1.5rem;
-}
-#objectives-list li::before {
-  content: "\25E6";
-  color: var(--bs-gray-500);
-  font-weight: bold;
-  display: inline-block;
-  width: 0.5em;
-  margin-left: -0.5em;
-  font-size: 2em;
-  vertical-align: sub;
-}
-
 .social-btn {
   width: 50px;
   height: 50px;
@@ -178,6 +159,20 @@ section[id] {
   border-top: var(--bs-border-width) solid var(--bs-border-color);
   margin-top: 1rem;     /* replaces the row's -0.5rem gutter margin: 1rem gap above the divider */
   padding-top: 0.5rem;  /* the row's 0.5rem column gutter completes the 1rem gap below the divider */
+}
+
+/* What I bring */
+.value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.value-item-icon {
+  flex-shrink: 0;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--my-primary-text);   /* 5.85:1 on white, above the 3:1 non-text minimum */
 }
 
 /* Bootstrap overrides */
