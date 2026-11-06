@@ -1,6 +1,6 @@
 ---
 name: rff-breakdown
-description: Break a "request for feature" spec (e.g. request-for-feature.md written by rff-create) into vertical, testable implementation steps and write them to ".rff/implementation-steps.md". Each step lists its purpose, the software layers it touches and the files on each layer; steps are then ordered by dependency into stages whose steps can run in parallel. Use when the user wants to plan, slice, break down or sequence the implementation of a feature request.
+description: Break a "request for feature" spec (e.g. request-for-feature.md written by rff-create) into vertical, testable implementation steps and write them to ".rff/implementation-steps.md". Each step lists its purpose, the software layers it touches, the files on each layer and the shared items it needs and provides, and is self-sufficient so it can be designed in isolation (one owner per shared item, no reliance on other steps' work); steps are then ordered by dependency into stages whose steps can run in parallel. Use when the user wants to plan, slice, break down or sequence the implementation of a feature request.
 argument-hint: "[path to request-for-feature file]"
 ---
 
@@ -53,6 +53,18 @@ Split the feature into steps. Each step must:
   - A horizontal step is allowed only when it is truly a shared prerequisite (e.g. project scaffolding, a shared layout, a schema migration needed by several slices). Mark it as `Enabler` and keep it as small as possible.
 - **Be small enough** to implement and review in one sitting (rough guide: a few hours, one PR). Split larger slices: thin happy path first, then edge cases, errors, polish.
 - **Leave the software working**: after any step, the app builds, existing behavior is not broken and tests pass.
+- **Be self-sufficient**: the step can later be designed in isolation, by someone who reads only this step, the items it depends on and the code (see "Self-sufficient steps" below).
+
+### Self-sufficient steps
+
+Each step is later detailed by `rff-detail` in a clean context, into a design file that never mentions other steps and never decides anything for them; any conflict between steps aborts that run. Define the steps so that this is always possible:
+
+- **Own scope only.** Everything a step's purpose, behavior, requirements and tests need is done inside that step. A step never needs another step to finish, adjust or complete part of its work, and its acceptance criteria can be verified without any later step.
+- **One owner per item.** Every shared item (type, interface, enum, table, route, event, config key; for front-end or static projects: element id, CSS class or variable, data attribute, JS function, shared script or style region) is created by exactly one step and listed in that step's **Provides**. Steps that use or extend it list it, with the same name, in **Prerequisites**. No item is created by two steps, and no step uses an item nobody creates.
+- **Explicit names.** Give every shared item its final name in the plan, so the steps that create and use it agree without talking to each other.
+- **No hidden contracts.** If a step relies on a behavior, shape or region of another step's work (a function signature, a CSS class's role, the part of a file it may edit), state it in the item's description in **Provides** and refer to it in **Prerequisites**; do not leave it implied.
+- **No changes to others' items.** A step that extends a shared item only adds to it in the way the owner's **Provides** allows (e.g. "adds rows to the table", "appends cards to `#showcase-list`"). If a step would need to rename, reshape or remove an item another step creates, merge the two steps or move that work into the owner.
+- **Self-contained text.** Purpose, behavior, how-to-test and notes describe this step's own work only. Do not write "S05 will handle the errors" or "finishes what S02 started"; dependencies are expressed only in **Depends on**, **Prerequisites** and the stages.
 
 Slicing heuristics: one user story or FR per step when possible; walking skeleton first (the thinnest end-to-end path), then widen; separate happy path from validation/error handling when either is large; keep cross-cutting concerns (SEO, accessibility, logging) attached to the slice they belong to, or as a final step if they span everything.
 
@@ -70,6 +82,8 @@ Number steps `S01`, `S02`, ... For each:
 - **Behavior:** What works after this step, in observable terms.
 - **Requirements covered:** FR-04, FR-05
 - **Depends on:** S01, S02  (or "none")
+- **Prerequisites:** shared items that must exist before this step, by name: `OrderStatus` (enum), `GET /api/orders` (route)  (or "none")
+- **Provides:** shared items this step creates, by name, with what other steps may rely on: `status` query param on `GET /api/orders` (accepts one `OrderStatus` value)  (or "none")
 - **Layers touched:**
   | Layer | Files | Change |
   |-------|-------|--------|
@@ -89,12 +103,14 @@ Use repo-relative paths in backticks. Mark each file as `new`, `modify` or `dele
 ## 4. Organize by dependency into stages
 
 1. For each step, list its real dependencies: another step must be done first because it creates code, data, UI structure or contracts this step needs. Do not add dependencies just for a "nice" order.
-2. Check for **file conflicts**: two steps that edit the same file region heavily are risky to run in parallel. Either add a dependency between them, or note in both steps which part of the file each owns. Small edits to different parts of a file are fine in parallel; say so.
-3. Build stages by topological order:
+2. Check for **file conflicts**: two steps that edit the same file region heavily are risky to run in parallel. Either add a dependency between them, or note in each step which part of the file it owns (describe the region, e.g. "the `#showcase` section", not the other step). Small edits to different parts of a file are fine in parallel; say so.
+3. Every **Prerequisites** item must appear in the **Provides** of a step listed (directly or transitively) in **Depends on**, or already exist in the code. Add the missing dependency, or fix the ownership.
+4. Build stages by topological order:
    - **Stage 1**: steps with no dependencies.
    - **Stage N**: steps whose dependencies are all in earlier stages.
    - Steps within the same stage can be executed in parallel.
-4. Check the result: no cycles; the critical path (longest chain) is as short as reasonable. If a stage holds a single large step that blocks everything, try to split it.
+5. Check the result: no cycles; the critical path (longest chain) is as short as reasonable. If a stage holds a single large step that blocks everything, try to split it.
+6. Check self-sufficiency (section 3): every shared item has exactly one owner; no step's text refers to another step's work; no step needs another step to meet its own requirements or tests; no step changes an item it does not own beyond what the owner's **Provides** allows. Fix the steps until every check passes, so `rff-detail` can design each one without conflicts.
 
 ## 5. Write `.rff/implementation-steps.md`
 
@@ -140,7 +156,13 @@ graph LR
 |-------------|-------|
 | FR-01 | S02 |
 
-## 6. Assumptions and open points
+## 6. Shared items
+Every item listed in a step's Provides or Prerequisites, with its single owner.
+| Item | Kind | Created by | Used / extended by | What others may rely on |
+|------|------|-----------|--------------------|-------------------------|
+| `#showcase-list` | element id | S01 | S03, S04 | container; others append cards |
+
+## 7. Assumptions and open points
 Assumptions made while planning and RFF open questions whose defaults were used, with the steps affected. (Omit if none.)
 ```
 
@@ -153,5 +175,6 @@ Tell the user the file path (as a clickable markdown link) and give a short summ
 - Plan only; do not implement any step.
 - Base every file path on what you saw in the codebase. If a file does not exist yet, mark it `new` and place it where the project's conventions say.
 - Never plan work listed as a non-goal in the RFF.
+- Every step must be self-sufficient (section 3): one owner per shared item, explicit names, and no step text that relies on or describes another step's work.
 - Prefer fewer, meaningful steps over many trivial ones; but never merge unrelated behaviors just to reduce the count.
 - Write in the same language as the RFF, unless the user asks otherwise.
