@@ -76,7 +76,7 @@ Responsibilities:
 * Improved performance bottlenecks.
 * Contributed primarily to the graphics engine.
 Technologies:
-C++, OpenGL, Qt, Multithreading, Visual C++, Jira
+C++, OpenGL, Qt, Multithreading, Visual Studio, Jira
 ________________
 
 
