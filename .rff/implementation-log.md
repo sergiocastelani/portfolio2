@@ -26,6 +26,8 @@ Deviations from a step file's implementation suggestions, as reported by its imp
 - (S06) Images deleted with a plain delete instead of `git rm` (agents may not stage); deletions committed by the checkpoint commit.
 - (S06) Toolbox has 45 chips, not 46: user decision (Visual Studio was double-counted in the step file).
 
+- (S09) CSS comment reworded to `/* brand accent; static, not interactive */` so the step's own hover/cursor grep check passes.
+
 ## Checks confirmed by the user
 - (S01) Check 8 (reduced motion jumps instantly), check 12 (nav "Main", section regions named by h2), check 15 (brand accessible name, spans not exposed).
 - (S02) Check 6 (LinkedIn/GitHub open in new tab; Email opens mail client with no empty tab).

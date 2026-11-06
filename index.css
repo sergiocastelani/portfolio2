@@ -245,6 +245,17 @@ section[id] {
   }
 }
 
+/* Professional highlights */
+.highlight-card {
+  border-top: 4px solid var(--my-primary);   /* brand accent; static, not interactive */
+}
+
+.highlight-card-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--my-primary);
+}
+
 /* Bootstrap overrides */
 .btn-primary {
   background-color: var(--my-primary) !important;
