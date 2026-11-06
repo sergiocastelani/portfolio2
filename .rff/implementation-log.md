@@ -9,7 +9,7 @@
 | S02 | [step-02.md](step-02.md) | done | 1 | c66fbd5 | Passed first review; check 6 confirmed by user |
 | S03 | [step-03.md](step-03.md) | done | 1 | 56c2fa0 | Passed first review; Manual 2 (Email) confirmed by user |
 | S04 | [step-04.md](step-04.md) | done | 1 | 062c501 | Passed first review; Manual 4-7 confirmed by user |
-| S05 | [step-05.md](step-05.md) | pending | 0 | - | - |
+| S05 | [step-05.md](step-05.md) | in-progress | 0 | - | - |
 | S06 | [step-06.md](step-06.md) | pending | 0 | - | - |
 | S07 | [step-07.md](step-07.md) | pending | 0 | - | - |
 | S08 | [step-08.md](step-08.md) | pending | 0 | - | - |

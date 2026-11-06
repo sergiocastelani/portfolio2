@@ -138,6 +138,27 @@ section[id] {
   text-decoration: none;
 }
 
+/* About */
+.about-summary {
+  max-width: 75ch;                                  /* readable line length for the summary */
+}
+
+.stat-tile {
+  background-color: #fff;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius-lg);
+}
+
+.stat-tile-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--my-primary);                         /* decorative accent, aria-hidden */
+}
+
+.stat-tile-number {
+  color: var(--my-primary-text);                    /* 5.85:1 on white */
+}
+
 /* Bootstrap overrides */
 .btn-primary {
   background-color: var(--my-primary) !important;
