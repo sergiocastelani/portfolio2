@@ -1,6 +1,6 @@
 # S01 - Page shell with sticky navigation and section anchors
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Type:** Enabler
 - **Requirements covered:** FR-01; R-A11Y (text contrast, visible focus states, heading hierarchy of the new sections); acceptance criteria "navbar collapses to a hamburger at 375px", "no horizontal scroll at 375px" (shell part), "heading not hidden under the sticky navbar"; enables FR-03 to FR-09 (section shells and anchors)
 - **Prerequisites:** existing `#profile` section, existing `--my-primary` and `--my-secondary` variables on `html`, existing `/* Bootstrap overrides */` comment in `index.css`, Bootstrap 5.3.1 CSS and deferred JS bundle from jsDelivr

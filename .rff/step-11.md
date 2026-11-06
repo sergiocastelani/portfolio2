@@ -1,6 +1,6 @@
 # S11 - Education and languages
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Type:** Slice
 - **Requirements covered:** FR-09; R-A11Y (heading hierarchy, decorative icons hidden, text contrast); acceptance criterion "no horizontal scroll at 375px" (this section's part)
 - **Prerequisites:** `#education` (section shell with `<h2 id="education-heading">` "Education & Languages"; content is appended after the `<h2>` only), `--my-primary-text` (CSS variable), Bootstrap Icons 1.11.3 (CDN link), the existing `/* Bootstrap overrides */` comment in `index.css`

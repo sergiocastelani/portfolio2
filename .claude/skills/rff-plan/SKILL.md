@@ -1,12 +1,12 @@
 ---
-name: rff-breakdown
-description: Break a "request for feature" spec (e.g. request-for-feature.md written by rff-create) into vertical, testable implementation steps and write them to ".rff/implementation-steps.md". Each step lists its purpose, the software layers it touches, the files on each layer and the shared items it needs and provides, and is self-sufficient so it can be designed in isolation (one owner per shared item, no reliance on other steps' work); steps are then ordered by dependency into stages whose steps can run in parallel. Use when the user wants to plan, slice, break down or sequence the implementation of a feature request.
+name: rff-plan
+description: Break a "request for feature" spec (e.g. request-for-feature.md written by rff-create) into vertical, testable implementation steps and write them to ".rff/plan.md". Each step lists its purpose, the software layers it touches, the files on each layer and the shared items it needs and provides, and is self-sufficient so it can be designed in isolation (one owner per shared item, no reliance on other steps' work); steps are then ordered by dependency into stages whose steps can run in parallel. Use when the user wants to plan, slice, break down or sequence the implementation of a feature request.
 argument-hint: "[path to request-for-feature file]"
 ---
 
-# rff-breakdown
+# rff-plan
 
-Turn a request-for-feature (RFF) file into an implementation plan made of vertical slices, grouped into stages that can be executed in parallel. Output: `.rff/implementation-steps.md`.
+Turn a request-for-feature (RFF) file into an implementation plan made of vertical slices, grouped into stages that can be executed in parallel. Output: `.rff/plan.md`.
 
 ## 1. Load the request for feature
 
@@ -57,7 +57,7 @@ Split the feature into steps. Each step must:
 
 ### Self-sufficient steps
 
-Each step is later detailed by `rff-detail` in a clean context, into a design file that never mentions other steps and never decides anything for them; any conflict between steps aborts that run. Define the steps so that this is always possible:
+Each step is later detailed by `rff-steps` in a clean context, into a design file that never mentions other steps and never decides anything for them; any conflict between steps aborts that run. Define the steps so that this is always possible:
 
 - **Own scope only.** Everything a step's purpose, behavior, requirements and tests need is done inside that step. A step never needs another step to finish, adjust or complete part of its work, and its acceptance criteria can be verified without any later step.
 - **One owner per item.** Every shared item (type, interface, enum, table, route, event, config key; for front-end or static projects: element id, CSS class or variable, data attribute, JS function, shared script or style region) is created by exactly one step and listed in that step's **Provides**. Steps that use or extend it list it, with the same name, in **Prerequisites**. No item is created by two steps, and no step uses an item nobody creates.
@@ -110,11 +110,11 @@ Use repo-relative paths in backticks. Mark each file as `new`, `modify` or `dele
    - **Stage N**: steps whose dependencies are all in earlier stages.
    - Steps within the same stage can be executed in parallel.
 5. Check the result: no cycles; the critical path (longest chain) is as short as reasonable. If a stage holds a single large step that blocks everything, try to split it.
-6. Check self-sufficiency (section 3): every shared item has exactly one owner; no step's text refers to another step's work; no step needs another step to meet its own requirements or tests; no step changes an item it does not own beyond what the owner's **Provides** allows. Fix the steps until every check passes, so `rff-detail` can design each one without conflicts.
+6. Check self-sufficiency (section 3): every shared item has exactly one owner; no step's text refers to another step's work; no step needs another step to meet its own requirements or tests; no step changes an item it does not own beyond what the owner's **Provides** allows. Fix the steps until every check passes, so `rff-steps` can design each one without conflicts.
 
-## 5. Write `.rff/implementation-steps.md`
+## 5. Write `.rff/plan.md`
 
-Write the file in a `.rff/` folder at the root of the project the RFF targets (create the folder if needed). If the file already exists, ask the user with `AskUserQuestion` whether to overwrite it or save as `.rff/implementation-steps-<short-slug>.md`.
+Write the file in a `.rff/` folder at the root of the project the RFF targets (create the folder if needed). If the file already exists, ask the user with `AskUserQuestion` whether to overwrite it or save as `.rff/plan-<short-slug>.md`.
 
 Structure:
 

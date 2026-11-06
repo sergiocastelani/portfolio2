@@ -1,6 +1,6 @@
 # S05 - About section with summary and key-numbers strip
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Type:** Slice
 - **Requirements covered:** FR-03; acceptance criterion "Given the About section, then it shows the summary and 4 stats (27 years, 6 industries, 6 companies, 13+ yrs C++)"; R-A11Y (text contrast of the numbers and labels, decorative icons hidden from assistive tech); 375px acceptance criterion "no horizontal scroll" (About part)
 - **Prerequisites:** `#about` section shell with its `<h2 id="about-heading">` (content is appended after the `<h2>` only), `--my-primary-text` and `--my-primary` CSS variables, Bootstrap Icons CDN link (version 1.11.3), the `/* Bootstrap overrides */` comment in `index.css`, Bootstrap 5.3.1 CSS

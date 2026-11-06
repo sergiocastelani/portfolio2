@@ -1,6 +1,6 @@
 # S09 - Professional highlight cards for Sysphera and Audaces
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Type:** Slice
 - **Requirements covered:** FR-08 (professional highlights part); RFF §5 edge case "Professional project cards have no links ... no hover overlay and no pointer cursor"; RFF §6 "Professional highlight cards"; RFF §10 acceptance criterion "Sysphera and Audaces appear as non-clickable highlight cards" (professional part); R-A11Y (heading hierarchy, chip contrast) for this content
 - **Prerequisites:** `#projects` (section shell with `<h2 id="projects-heading">` "Featured Work"), `#projects-professional` (empty `<div>` inside `#projects`), `.skill-chip` (CSS class), `--my-primary` (CSS variable), `/* Bootstrap overrides */` comment in `index.css`, Bootstrap 5.3 CSS and Bootstrap Icons from the CDN

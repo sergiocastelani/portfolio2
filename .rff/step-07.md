@@ -1,6 +1,6 @@
 # S07 - "What I bring" replaces Objectives
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Type:** Slice
 - **Requirements covered:** FR-06; acceptance criterion "No 'Objectives' section remains"; acceptance criterion "no horizontal scroll at 375px" (this section's part); R-A11Y (heading hierarchy, icon contrast, decorative icons hidden)
 - **Prerequisites:** `#value` (section shell with `<h2 id="value-heading">` "What I bring"; content is appended after the `<h2>` only), `--my-primary-text` (CSS variable), Bootstrap Icons CDN (`bi-diagram-3`, `bi-speedometer2`, `bi-lightbulb`, `bi-rocket-takeoff`), the `/* Bootstrap overrides */` comment in `index.css`; existing legacy "Objectives" `<section>` in `index.html` and the existing `#objectives-list` rules in `index.css`

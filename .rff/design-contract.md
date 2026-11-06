@@ -1,6 +1,6 @@
 # Design Contract: Recruiter-Ready Portfolio Refresh
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Updated:** 2026-11-06
 
 ## 1. Step status

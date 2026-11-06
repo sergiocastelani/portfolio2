@@ -1,6 +1,6 @@
 # S08 - Experience timeline with all six roles
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Type:** Slice
 - **Requirements covered:** FR-07; acceptance criteria "Experience timeline lists 6 roles newest first, with Tech6 'Oct 2023 – Oct 2026' and Pixeon 'Feb 2005 – Jan 2012'" and "at 375px the timeline is readable and there is no horizontal scroll" (timeline part); RFF §6 timeline UI notes (green line, dot per role, muted date badge, mobile layout; Bootstrap Icons deliberately omitted, see design notes); R-A11Y (heading hierarchy, text contrast) for this section
 - **Prerequisites:** `#experience` (section shell with `<h2 id="experience-heading">`; content is appended after the `<h2>` only), `.skill-chip` (CSS class), `--my-primary` and `--my-primary-text` (CSS variables), `/* Bootstrap overrides */` comment in `index.css`, Bootstrap 5.3.1 CSS (`.badge`, `--bs-secondary-bg`, `--bs-secondary-color`, `--bs-gray-100`, `list-unstyled` and the spacing, flex and text utilities used below)

@@ -1,6 +1,6 @@
 # S12 - Updated architecture docs and final acceptance audit
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Type:** Enabler
 - **Requirements covered:** R-DOCS (RFF §8 "Update `CLAUDE.md` 'Page sections'"); verification of all 11 RFF §10 acceptance criteria; verification of R-A11Y (RFF §6), R-SEO (RFF §9, Lighthouse SEO ≥ 90) and R-PERF (RFF §9)
 - **Prerequisites (read only):** `#main-nav`, `#profile`, `#profile-img`, `.social-btn`, `#about`, `#skills`, `#value`, `#experience`, `#projects`, `#projects-professional`, `#projects-personal`, `#education`, `.page-section`, `.section-alt`, `section[id]` scroll offset rule, `--main-nav-height`, `--my-primary-text`, global `:focus-visible` outline, `.skill-chip`, Bootstrap Icons 1.11.3 CDN link, `#footer-year`, `.stat-tile`, `.expertise-card`, `.value-item`, `.timeline`, `.timeline-item`, `.timeline-date`, `.highlight-card`, `#more-projects`, `#more-projects-toggle`, `.project-card-img`, `.project-img-overlay`, the 768px media query, the CSS section blocks convention; the finished `index.html`, `index.css` and `images/`

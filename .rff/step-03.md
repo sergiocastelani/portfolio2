@@ -1,6 +1,6 @@
 # S03 - Footer with automatic year and social icons
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Type:** Slice
 - **Requirements covered:** FR-10; RFF §12 open question "Social links in the footer" (default: repeat the LinkedIn, GitHub and email icons, small); RFF §5 edge case "footer year falls back to the static 2026"; R-A11Y for the footer links (accessible names, contrast, visible focus)
 - **Prerequisites:** the existing `<footer>` element (last child of `<main>`); the existing Bootstrap Icons CDN `<link>` (any version from 1.10.5 up, which all include `bi-linkedin`, `bi-github`, `bi-envelope`); the existing `/* Bootstrap overrides */` comment in `index.css`

@@ -1,6 +1,6 @@
 # S02 - Hero presents the senior full-stack profile above the fold
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Type:** Slice
 - **Requirements covered:** FR-02; R-A11Y (photo `alt`, `aria-label` on icon-only social buttons, single `h1`, valid heading hierarchy); RFF §10 criterion 1 (hero visible without scrolling on desktop)
 - **Prerequisites:** `#profile` (existing hero section), `#profile-img` (existing photo element and CSS rule), `.social-btn` (existing class and CSS rule), `.btn-primary` theme override, `images/photo2.png`

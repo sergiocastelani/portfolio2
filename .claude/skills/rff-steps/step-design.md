@@ -1,4 +1,4 @@
-# Step design rules (rff-detail)
+# Step design rules (rff-steps)
 
 You are detailing **one** step of an implementation plan into `.rff/step-NN.md`. Design only: do not implement anything and do not edit any file other than your step file.
 
@@ -14,7 +14,7 @@ A developer (or an agent) must be able to implement the step from this file alon
 
 ## 1. Read what you need, nothing more
 
-- The step's section in the plan (`.rff/implementation-steps.md`), plus the plan's overview, software layers and assumptions.
+- The step's section in the plan (`.rff/plan.md`), plus the plan's overview, software layers and assumptions.
 - The parts of the source RFF this step covers: requirements, acceptance criteria, data model, UI/UX notes, non-goals, open-question defaults.
 - `.rff/design-contract.md`: shared names and who creates them. Treat it as binding.
 - The approved step files of the steps this step depends on (listed in the brief). Do not read other step files unless the brief says so.
@@ -96,7 +96,7 @@ Write `.rff/step-NN.md` (from the step id: `S01` → `step-01.md`) with this tem
 ````markdown
 # S03 - <Step title from the plan>
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Type:** Slice | Enabler
 - **Requirements covered:** FR-04, FR-05
 - **Prerequisites:** `<items that must exist before this step starts, by name>`  (or "none")

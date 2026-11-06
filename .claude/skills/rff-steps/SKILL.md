@@ -1,12 +1,12 @@
 ---
-name: rff-detail
-description: Turn each step of ".rff/implementation-steps.md" (written by rff-breakdown) into a deep, implementation-ready design file ".rff/step-NN.md", one step at a time. Each step is designed by a new agent and reviewed by a separate new agent, both starting with a clean context when the step starts and keeping it through every review round of that step, then reviewed with the user until approved, and only then does the next step start. Each file specifies the structure to build or change (files, classes, interfaces, enums, methods, attributes, or the stack's equivalents such as HTML sections, CSS classes and JS functions), the complex logic flows as mermaid diagrams, and exactly what must be tested, while keeping SOLID, DRY and Clean Code principles. Each step file is isolated: it never mentions or decides anything for other steps, and any conflict with another step aborts the run so the user fixes the plan. Use when the user wants to detail, design, deepen or spec out the implementation steps of a feature request.
-argument-hint: "[step ids, e.g. S03 or S02,S05 | path to implementation-steps file]"
+name: rff-steps
+description: Turn each step of ".rff/plan.md" (written by rff-plan) into a deep, implementation-ready design file ".rff/step-NN.md", one step at a time. Each step is designed by a new agent and reviewed by a separate new agent, both starting with a clean context when the step starts and keeping it through every review round of that step, then reviewed with the user until approved, and only then does the next step start. Each file specifies the structure to build or change (files, classes, interfaces, enums, methods, attributes, or the stack's equivalents such as HTML sections, CSS classes and JS functions), the complex logic flows as mermaid diagrams, and exactly what must be tested, while keeping SOLID, DRY and Clean Code principles. Each step file is isolated: it never mentions or decides anything for other steps, and any conflict with another step aborts the run so the user fixes the plan. Use when the user wants to detail, design, deepen or spec out the implementation steps of a feature request.
+argument-hint: "[step ids, e.g. S03 or S02,S05 | path to plan file]"
 ---
 
-# rff-detail
+# rff-steps
 
-Turn the plan in `.rff/implementation-steps.md` into one detailed design file per step (`.rff/step-01.md`, `.rff/step-02.md`, ...), **one step at a time**:
+Turn the plan in `.rff/plan.md` into one detailed design file per step (`.rff/step-01.md`, `.rff/step-02.md`, ...), **one step at a time**:
 
 1. Each step is designed in a **fresh, clean context** (a new subagent that knows only that step, the shared contract and the approved files it depends on).
 2. The step is **reviewed**, first by another new subagent with a clear context, then by the user, and revised until the user approves it.
@@ -38,15 +38,15 @@ When a conflict appears, at any point (loading the plan, the designer's work, th
 1. Stop. Do not resolve it yourself, do not ask the user to decide it here, do not edit the plan, and do not start or continue any step.
 2. If a step file was written for the step being detailed, delete it and set that step back to `pending` in the contract. Steps already `approved` stay as they are.
 3. Show the user every conflict found: what it is, which steps and plan sections it involves, the evidence (file and quote), and, as a suggestion only, how the plan could be changed to remove it.
-4. Tell the user to resolve the conflict in the plan file (link it: `.rff/implementation-steps.md`, or the plan path in use) and then run `rff-detail` again.
+4. Tell the user to resolve the conflict in the plan file (link it: `.rff/plan.md`, or the plan path in use) and then run `rff-steps` again.
 5. End the operation. Nothing else runs in this invocation.
 
 ## 1. Load the plan
 
 1. **Find the plan.**
    - If `$ARGUMENTS` contains a path to a `.md` file, use it.
-   - Otherwise use `.rff/implementation-steps.md` at the project root. If several `implementation-steps*.md` files exist in `.rff/`, ask which one with `AskUserQuestion`.
-   - If none exists, tell the user to run `rff-breakdown` first, and stop.
+   - Otherwise use `.rff/plan.md` at the project root. If several `plan*.md` files exist in `.rff/`, ask which one with `AskUserQuestion`.
+   - If none exists, tell the user to run `rff-plan` first, and stop.
 2. **Read the whole plan**: overview, layers, every step, stages, coverage and assumptions. Skim the source RFF it names, only enough to know its requirements and non-goals.
 3. **Pick the steps to detail.**
    - If `$ARGUMENTS` lists step ids (`S03`, `S02,S05`, `S04-S07`), detail only those.
@@ -62,7 +62,7 @@ If it does not exist, create it from the plan (and a quick look at the files the
 ```markdown
 # Design Contract: <Feature name>
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Updated:** <YYYY-MM-DD>
 
 ## 1. Step status
@@ -168,9 +168,9 @@ When every selected step is approved or skipped:
 
 If the Agent tool is not available, still work one step at a time, and keep design and review in separate clean contexts by splitting them across runs:
 
-1. **Design run**: design the step yourself by following `step-design.md`, write the file, set it to `draft` with the note `awaiting review` in the contract, and tell the user to clear the context (`/clear`) and run `rff-detail` again.
+1. **Design run**: design the step yourself by following `step-design.md`, write the file, set it to `draft` with the note `awaiting review` in the contract, and tell the user to clear the context (`/clear`) and run `rff-steps` again.
 2. **Review run**: a step marked `awaiting review` is picked up first. Review it by following `step-review.md`, without reading anything about how it was designed beyond the step file. On `pass`, run 3.3 and close it with 3.4. On `fail`, fix the issues and re-review the fixed file in the same run (section 5 of `step-review.md`), repeating until `pass`; the review context is kept until the step is approved. On `conflict`, abort.
-3. After a step is approved, tell the user to `/clear` and run `rff-detail` again; the contract makes the next run resume at the next pending step.
+3. After a step is approved, tell the user to `/clear` and run `rff-steps` again; the contract makes the next run resume at the next pending step.
 
 The isolation and conflict rules apply unchanged.
 

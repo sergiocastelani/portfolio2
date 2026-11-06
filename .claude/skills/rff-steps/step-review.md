@@ -1,4 +1,4 @@
-# Step review rules (rff-detail)
+# Step review rules (rff-steps)
 
 You are reviewing **one** step design file, `.rff/step-NN.md`. You start in a clean context and keep it for every review round of this step, until the step is approved. You did not write the file and you know nothing about how it was written: judge only the file against its sources (and, on later rounds, your own earlier findings and any user feedback you are given). Review only: do not edit the step file or any other file.
 
@@ -6,7 +6,7 @@ You are reviewing **one** step design file, `.rff/step-NN.md`. You start in a cl
 
 - The step file under review.
 - `step-design.md` (next to this file): the rules the step file must follow. Its section 0 (isolation and conflicts) is binding.
-- The step's section in the plan (`.rff/implementation-steps.md`), plus the plan's overview, software layers and assumptions.
+- The step's section in the plan (`.rff/plan.md`), plus the plan's overview, software layers and assumptions.
 - The parts of the source RFF this step covers: requirements, acceptance criteria, non-goals, open-question defaults.
 - `.rff/design-contract.md`: shared names and who creates them.
 - The approved step files of the steps this step depends on (listed in the brief), only to check prerequisite names. Do not read other step files.

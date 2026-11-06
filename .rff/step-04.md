@@ -1,6 +1,6 @@
 # S04 - Search and link-preview metadata
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Type:** Slice
 - **Requirements covered:** FR-11; NFR SEO (RFF §9: descriptive `<title>`, meta description, OG/Twitter tags); R-SEO (Lighthouse SEO ≥ 90, meta part); acceptance criterion "Given the page URL pasted into LinkedIn or Slack, then the preview shows the title, description, and photo"
 - **Prerequisites:** existing `<head>` in `index.html` (with `<meta charset="UTF-8">`, `<meta name="viewport">` and `<title>`); existing asset `images/photo2.png`

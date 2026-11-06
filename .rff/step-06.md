@@ -1,6 +1,6 @@
 # S06 - Expertise cards and full toolbox replace the stock-image skills
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Type:** Slice
 - **Requirements covered:** FR-04, FR-05, FR-12 (stock images part); R-PERF (icons replace photos); acceptance criteria "Skills section has exactly 5 expertise cards ... followed by a grouped Full toolbox containing every skill from the resume", "No stock skill images remain in the repo or the page", "Given a 375px-wide viewport ... cards stack ... no horizontal scroll" (Expertise part)
 - **Prerequisites:** `#skills` (section shell with `.section-alt` and `<h2 id="skills-heading">` "Expertise"; content is appended after the `<h2>`), `.skill-chip` (CSS class), `--my-primary` and `--my-primary-text` (CSS variables), Bootstrap Icons 1.11.3 CDN link, the existing `/* Bootstrap overrides */` comment in `index.css`, the existing legacy "Strongest Hard skills" `<section>` in `index.html`, the files `images/desktop.jpg`, `images/web-dev.jpeg`, `images/so.jpg`

@@ -1,6 +1,6 @@
 # S10 - Personal project cards with a "More projects" toggle
 
-- **Plan:** [implementation-steps.md](implementation-steps.md)
+- **Plan:** [plan.md](plan.md)
 - **Type:** Slice
 - **Requirements covered:** FR-08 (personal projects, "More projects" collapse, HashMarks removed), FR-12 (`images/projects/hashmarks.png`), FR-13; R-A11Y (keyboard-accessible project images, heading hierarchy, `rel="noopener"`); R-PERF (collapsed screenshots not fetched until shown); acceptance criteria "GrowTweet, 3D Viewer and Bat-Flappy appear as clickable image cards, and HashMarks appears nowhere", "When 'Show more projects' is clicked, the 5 remaining demos expand, and clicking again collapses them", "at 375px cards stack and there is no horizontal scroll"
 - **Prerequisites:** `#projects` (section shell with `<h2>` "Featured Work"), `#projects-personal` (empty `<div>` inside `#projects`), `--my-primary-text` (CSS variable), global `:focus-visible` outline, Bootstrap 5.3.1 CSS and deferred JS bundle (collapse plugin), Bootstrap Icons (`bi-eye-fill`); existing legacy "Showcase" `<section>`, `.project-card-img` and `.project-img-overlay` rules and the `@media (max-width: 768px)` block in `index.css`, `images/projects/*.png`
