@@ -4,7 +4,7 @@ You are implementing **one** step file, `.rff/step-NN.md`. You start with a clea
 
 ## 0. Binding rules
 
-- **Stay inside the step.** Change only what this step needs. Do not do work that the step file's "Out of scope" section, the plan or the design contract assigns elsewhere, and do not "improve" unrelated code.
+- **Stay inside the step.** Change only what this step needs. Do not do work that the step file's "Out of scope" section or the design contract assigns elsewhere, and do not "improve" unrelated code.
 - **Suggestions are not orders.** The step file's structure, names of private items, skeletons and "Implementation order" are suggestions. You may deviate when you find a better or necessary way (the code differs from what the file assumed, a simpler design meets the same requirements, a suggestion has a bug). Every deviation must be reported (section 4).
 - **What you may not deviate from:**
   - The step's goal, requirements and acceptance criteria.
@@ -15,11 +15,13 @@ You are implementing **one** step file, `.rff/step-NN.md`. You start with a clea
 
 ## 1. Read
 
+Your documentation context is limited to these files. Do not open any other `.rff/` file: not `.rff/plan.md`, not the source feature request, not the step files of other steps (done or not). The step file is self-sufficient; anything it does not mention is already established behavior to preserve.
+
 - The step file, in full.
-- `.rff/implementation-log.md`: what is already done, and earlier deviations.
-- `.rff/design-contract.md` and the step's section in `.rff/plan.md`, when they exist, for shared names and scope.
-- `CLAUDE.md` and other project docs for conventions.
-- Every code file the step touches, in full, before changing it.
+- `CLAUDE.md` and the other global project instruction files (for example `.claude/CLAUDE.md`, `CLAUDE.local.md`), for conventions.
+- The workflow control files: this `implement.md`, and `.rff/design-contract.md` when it exists (shared names and who owns them).
+- The log: `.rff/implementation-log.md` (what is already done, and earlier deviations).
+- Every code file the step touches, in full, before changing it, and any other code you need to understand what uses the code you change.
 
 ## 2. Implement
 
@@ -35,7 +37,7 @@ You are implementing **one** step file, `.rff/step-NN.md`. You start with a clea
 3. **Manual checks**: execute each one yourself by the most faithful means your tools allow: a browser tool if available (open the page through a local static server or the file path, resize the viewport, run JavaScript in the page, read the accessibility tree, take screenshots), shell scripts, or reading the rendered markup. Use only tools and packages already available; do not download new software.
    - A check passes only if you actually observed the expected result.
    - A check you cannot run with any tool (for example a pure visual judgment, or a DevTools feature your tools do not reach) is `needs-human`: give the exact reason and how close you got.
-4. **Regressions**: re-run the static checks of every step already `done` in the log, and spot-check their manual checks that touch the files you changed. Fix anything you broke.
+4. **Regressions**: treat every existing behavior that the step file does not mention as already well established, and make sure it still works. Do not look up earlier steps' files to find their checks; instead, check the existing code directly: what else uses the code you changed (selectors, ids, classes, scripts, styles, api endpoints, database structures) still behaves as before, and the project's existing test suite (if any) still passes. Fix anything you broke.
 
 If something fails, fix the code, not the test. Repeat until everything passes.
 
@@ -46,7 +48,7 @@ Report back in this shape (short, no file dump):
 - **Status:** `ok` | `blocked`
 - **Files changed:** path and one line each
 - **Deviations:** for each one: what the step file suggested, what you did instead, and why (or "none")
-- **Test results:** one line per defined test or check: id or short name, `pass` / `fail` / `needs-human`, and the evidence (command output, observed value, screenshot description). Then one line for the regression checks of earlier steps.
+- **Test results:** one line per defined test or check: id or short name, `pass` / `fail` / `needs-human`, and the evidence (command output, observed value, screenshot description). Then one line for the regression checks of existing behavior.
 - **Blocked reason:** when `blocked`: what blocks the step, the evidence (file and quote), and a suggested way out (suggestion only)
 
 ## 5. Later rounds

@@ -6,10 +6,12 @@ Review only: do not edit, stage, commit, stash or reset anything. You may run te
 
 ## 1. Read
 
+Your documentation context is limited to these files. Do not open any other `.rff/` file: not `.rff/plan.md`, not the source feature request, not the step files of other steps (done or not). Anything the step file does not mention is already well-established behavior: your job is to confirm the diff preserves it, not to re-verify earlier steps.
+
 - The step file, in full.
-- `.rff/implementation-log.md`, and the step files of the steps already `done` (listed in the brief), for their tests and checks.
-- `.rff/design-contract.md` and the step's section in `.rff/plan.md`, when they exist.
-- `CLAUDE.md` and other project docs for conventions.
+- `CLAUDE.md` and the other global project instruction files (for example `.claude/CLAUDE.md`, `CLAUDE.local.md`), for conventions.
+- The workflow control files: this `review.md`, and `.rff/design-contract.md` when it exists (shared names and who owns them).
+- The log: `.rff/implementation-log.md`.
 - **The step's full diff** against the checkpoint given in the brief (including untracked files), and every changed file in full around the changes.
 - The implementer's **Deviations** and **Test results**, as given in the brief.
 
@@ -18,9 +20,9 @@ Review only: do not edit, stage, commit, stash or reset anything. You may run te
 ### 2.1 Regressions (priority)
 
 1. **Unintended changes**: every hunk of the diff is needed by this step. Flag reformatting, reordering, deleted or altered lines that the step did not ask for, and edits to files the step does not touch.
-2. **Earlier steps still pass**: re-run the static checks and automated tests of every step already `done`, and the project's existing test suite. Re-run their manual checks that touch the changed files or shared items.
+2. **Existing tests still pass**: run the project's existing test suite (if any). Do not re-run earlier steps' checks from their step files; you do not read them.
 3. **Shared items intact**: every name in the contract, and every prerequisite of this step, still exists with the same name and behavior.
-4. **Existing behavior**: think through what else uses the changed code (other sections, selectors, scripts, styles, breakpoints, no-JS and reduced-motion paths, accessibility) and verify it still works. Look for side effects such as CSS rules that now match more elements, ids or classes reused, scripts that run on more or fewer elements, layout shifts at other viewports.
+4. **Existing behavior**: treat every behavior the step file does not mention as already well established and expected to stay unchanged. Starting from the diff, think through what else uses the changed code (other sections, selectors, scripts, styles, breakpoints, no-JS and reduced-motion paths, accessibility) and verify it still works. Look for side effects such as CSS rules that now match more elements, ids or classes reused, scripts that run on more or fewer elements, layout shifts at other viewports.
 5. **Removals**: whatever was removed was meant to be removed, and nothing still depends on it.
 
 ### 2.2 The step itself

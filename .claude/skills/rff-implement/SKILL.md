@@ -68,7 +68,7 @@ Set the step's status to `in-progress` in the log.
 Start a **new** implementer with the Agent tool (`subagent_type: general-purpose`; never `fork`, which would carry this conversation; never an agent from an earlier step). Brief it with:
 
 - The step id and title.
-- Absolute paths to: `implement.md` (in this skill's base directory), the step file, `.rff/plan.md` and `.rff/design-contract.md` (when they exist), and `.rff/implementation-log.md`.
+- Absolute paths to: `implement.md` (in this skill's base directory), the step file, `.rff/design-contract.md` (when it exists), and `.rff/implementation-log.md`. Nothing else: no `.rff/plan.md`, no source feature request, no other step files. The agent also reads `CLAUDE.md` and the other global project instruction files on its own.
 - The checkpoint the step starts from, and the git rules above.
 - The instruction: "Follow `implement.md` exactly. Implement only this step. You may deviate from the step file's implementation suggestions, but when you finish, every test and check the step file defines must exist and pass. Report back in the format at the end of `implement.md`. You will receive the reviewer's findings and must fix them until the step passes review."
 
@@ -83,7 +83,7 @@ The step is reviewed by a reviewer agent, never by you and never by the implemen
 **First review of the step.** Start a **new** reviewer with the Agent tool (`subagent_type: general-purpose`, `effort: "high"`; never `fork`, and never a reviewer from an earlier step). Brief it with:
 
 - The step id and title, and the checkpoint the step started from (so it can diff the step's changes).
-- Absolute paths to: `review.md` (in this skill's base directory), the step file, `.rff/plan.md` and `.rff/design-contract.md` (when they exist), `.rff/implementation-log.md`, and the step files of every step already `done` in the log (for their regression checks).
+- Absolute paths to: `review.md` (in this skill's base directory), the step file, `.rff/design-contract.md` (when it exists), and `.rff/implementation-log.md`. Nothing else: no `.rff/plan.md`, no source feature request, and no step files of earlier steps. Regressions are checked from the diff, treating every existing behavior the step file does not mention as already well established.
 - The implementer's **Deviations** and **Test results** sections, verbatim, so it can check them. Nothing else from the implementer's report.
 - The instruction: "Follow `review.md` exactly. Focus on regressions. Do not edit, stage or commit any file. Report back in the format at the end of `review.md`. You will be asked to re-review after each fix until the step passes."
 
@@ -133,6 +133,7 @@ When every selected step is `done` or `skipped`, or the run was stopped:
 - One step at a time, always. No parallel agents, no batching of steps.
 - Implementer and reviewer are always different agents. Both start with a clean context at the start of a step's loop and keep it until that loop is over; they are never reused for another step. You never implement or review a step yourself.
 - The reviewer always runs with `effort: "high"`.
-- The step file's tests and checks are the bar: a step is done only when they all exist and pass (agent-verified, or confirmed by the user for `needs-human` checks), together with the regression checks of every step already done.
+- The step file's tests and checks are the bar: a step is done only when they all exist and pass (agent-verified, or confirmed by the user for `needs-human` checks), and existing behavior the step does not mention is unchanged.
+- Keep both agents' context minimal: the step file, global project instructions (`CLAUDE.md` and similar), the workflow control files (`implement.md` / `review.md`, `.rff/design-contract.md`) and the log (`.rff/implementation-log.md`), plus the code itself. Never brief them with the plan or other step files.
 - Forward findings and user feedback faithfully; do not reinterpret them.
 - Write in the same language as the step files.
