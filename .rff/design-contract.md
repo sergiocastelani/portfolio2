@@ -77,7 +77,7 @@ Decisions approved during a step's review, each about that step's own work only.
 - (S05) Tiles are white with a border on the white About section (no tint or gray fill).
 - (S05) Screen readers in browse mode may announce a tile's number and label as two lines within the same list item; accepted.
 - (S05) Approved without user questions: the user accepted all recommended options for this run.
-- (S06) "Visual Studio" (resume, Graebert) added to the toolbox under Tools & Platforms so every experience technology appears once; toolbox keeps the resume's exact wording (46 chips).
+- (S06) "Visual Studio" (resume, Graebert) added to the toolbox under Tools & Platforms so every experience technology appears once; toolbox keeps the resume's exact wording (45 chips; Visual Studio was already in the resume's Tools & Platforms list, so it appears once).
 - (S06) Card chip "GitHub Copilot / Codex / Claude" stays one chip as in RFF §7.2 (split into three chips in the toolbox); inferred chips "Profiling" and "LLM integration" kept; card blurbs used as written.
 - (S06) "~2 years" is read by screen readers as "About 2 years" (visually hidden text, "~" hidden).
 - (S06) Toolbox group spacing: `.toolbox-group + .toolbox-group { margin-top: 1rem; padding-top: 0.5rem; }` for even 1rem gaps around each divider.

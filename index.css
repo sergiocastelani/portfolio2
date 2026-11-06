@@ -159,6 +159,27 @@ section[id] {
   color: var(--my-primary-text);                    /* 5.85:1 on white */
 }
 
+/* Expertise */
+.expertise-card {
+  border-top: 0.25rem solid var(--my-primary);   /* brand accent on the white card */
+}
+
+.expertise-card-icon {
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--my-primary);                       /* decorative fill color (aria-hidden) */
+}
+
+.expertise-card-years {
+  color: var(--my-primary-text);                  /* text green: 5.85:1 on the white card */
+}
+
+.toolbox-group + .toolbox-group {
+  border-top: var(--bs-border-width) solid var(--bs-border-color);
+  margin-top: 1rem;     /* replaces the row's -0.5rem gutter margin: 1rem gap above the divider */
+  padding-top: 0.5rem;  /* the row's 0.5rem column gutter completes the 1rem gap below the divider */
+}
+
 /* Bootstrap overrides */
 .btn-primary {
   background-color: var(--my-primary) !important;

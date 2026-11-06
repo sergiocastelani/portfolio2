@@ -12,7 +12,7 @@ When this step is done:
 
 - The Expertise section (`#skills`, gray band) shows exactly 5 white cards, in this order: Full-Stack Web, AI Agents, C++ & Performance, Computer Graphics & GPU, Medical Imaging. Each card shows a green Bootstrap Icon, a title, a years label in text green ("5+ years", "~2 years", "13+ years", "12+ years", "7 years"), a 1–2 line blurb and the tech chips from RFF §7.2. A green top border marks each card.
 - Grid: 3 cards per row on lg and up (3 + 2, the second row centered), 2 per row on md (2 + 2 + 1, the last card centered), 1 per row below 768px. Cards in a row have equal height, and their chip lists line up at the bottom.
-- Below the cards, a white "Full toolbox" card lists 46 skills as `.skill-chip` badges in 5 groups: Languages, Frameworks & Libraries, Databases, Tools & Platforms, Specialized. From 768px up, each group name sits in a narrow left column with its chips on the right. Below 768px, the name sits above its chips. Thin dividers separate the groups.
+- Below the cards, a white "Full toolbox" card lists 45 skills as `.skill-chip` badges in 5 groups: Languages, Frameworks & Libraries, Databases, Tools & Platforms, Specialized. From 768px up, each group name sits in a narrow left column with its chips on the right. Below 768px, the name sits above its chips. Thin dividers separate the groups.
 - The legacy "Strongest Hard skills" section is gone from the page, and `images/desktop.jpg`, `images/web-dev.jpeg` and `images/so.jpg` are deleted from the repo.
 - The cards are not interactive: no links, no hover effect, no pointer cursor, nothing focusable.
 
@@ -121,10 +121,10 @@ The five groups, in this order (items in the order listed; written exactly as sh
 | 1 | Languages | C#, JavaScript / TypeScript, PHP, Python, HTML / CSS, C / C++, Java, Assembly | 8 |
 | 2 | Frameworks & Libraries | ASP.NET, Microsoft Agent Framework, React, Redux, Qt, Boost, Bootstrap, Express, Node.js, Unity, Three.js, WebGL | 12 |
 | 3 | Databases | PostgreSQL, SQL Server, MySQL, NoSQL | 4 |
-| 4 | Tools & Platforms | Visual Studio, VS Code, Git, Docker, Azure, GitHub Copilot CLI, Codex, Claude, AWS, Jenkins, Jira | 12 |
+| 4 | Tools & Platforms | Visual Studio, VS Code, Git, Docker, Azure, GitHub Copilot CLI, Codex, Claude, AWS, Jenkins, Jira | 11 |
 | 5 | Specialized | Fullstack web development, Computer Graphics, OpenGL, CUDA, Multithreading, DICOM / Medical Imaging, VoIP / SIP, Real-Time Systems, TCP/IP, iOS | 10 |
 
-Total: 46 chips, each item exactly once.
+Total: 45 chips, each item exactly once.
 
 How the list was built (this is the verification source for the toolbox):
 
@@ -208,7 +208,7 @@ Serve the folder (`npx serve .` or `python -m http.server`) and open it in Chrom
 2. Given the same viewport, then cards in the same row have equal height and their chip rows start at the same height at the bottom, each card has a green top border, and the cards stand out white on the gray band. (FR-04; RFF §6 expertise cards)
 3. Given an 800px viewport, then cards show 2 per row (2 + 2 + 1, the last one centered). Given a 375px viewport, then cards show 1 per row, and `document.documentElement.scrollWidth === document.documentElement.clientWidth` in the console returns `true`. (FR-04 grid; 375px acceptance criterion)
 4. Given the "Full toolbox" card, then it follows the expertise cards and shows the groups Languages, Frameworks & Libraries, Databases, Tools & Platforms, Specialized in that order, with dividers between them. At 1366px each group name is on the left of its chips; at 375px each name is above its chips. In DevTools, the distance from the bottom of a group's chips to the divider below it is 16px, and from that divider to the top of the next group's name is also 16px. (FR-05)
-5. Given the console, when you run the snippet below, then it prints `[] [] true 46`: no expected item is missing, no unexpected chip exists, no chip is duplicated, and the count is 46. Then compare the "Technical Skills" section and every "Technologies:" line of `my-resume.txt` against the table in 3.2 b and the coverage rules under it: every item is present in its group. (FR-05; acceptance criterion "Full toolbox containing every skill from the resume")
+5. Given the console, when you run the snippet below, then it prints `[] [] true 45`: no expected item is missing, no unexpected chip exists, no chip is duplicated, and the count is 45. Then compare the "Technical Skills" section and every "Technologies:" line of `my-resume.txt` against the table in 3.2 b and the coverage rules under it: every item is present in its group. (FR-05; acceptance criterion "Full toolbox containing every skill from the resume")
 
    ```js
    const expected = ['C#','JavaScript / TypeScript','PHP','Python','HTML / CSS','C / C++','Java','Assembly',

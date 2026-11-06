@@ -10,7 +10,7 @@
 | S03 | [step-03.md](step-03.md) | done | 1 | 56c2fa0 | Passed first review; Manual 2 (Email) confirmed by user |
 | S04 | [step-04.md](step-04.md) | done | 1 | 062c501 | Passed first review; Manual 4-7 confirmed by user |
 | S05 | [step-05.md](step-05.md) | done | 1 | 8236fca | Passed first review; Manual 11 (forced colors) needs-human, deferred |
-| S06 | [step-06.md](step-06.md) | in-progress | 0 | - | - |
+| S06 | [step-06.md](step-06.md) | in-progress | 0 | - | Was blocked (46 vs 45 chips); user chose 45, step file and contract corrected |
 | S07 | [step-07.md](step-07.md) | pending | 0 | - | - |
 | S08 | [step-08.md](step-08.md) | pending | 0 | - | - |
 | S09 | [step-09.md](step-09.md) | pending | 0 | - | - |
