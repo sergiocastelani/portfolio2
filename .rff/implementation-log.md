@@ -10,8 +10,8 @@
 | S03 | [step-03.md](step-03.md) | done | 1 | 56c2fa0 | Passed first review; Manual 2 (Email) confirmed by user |
 | S04 | [step-04.md](step-04.md) | done | 1 | 062c501 | Passed first review; Manual 4-7 confirmed by user |
 | S05 | [step-05.md](step-05.md) | done | 1 | 8236fca | Passed first review; Manual 11 (forced colors) needs-human, deferred |
-| S06 | [step-06.md](step-06.md) | in-progress | 0 | - | Was blocked (46 vs 45 chips); user chose 45, step file and contract corrected |
-| S07 | [step-07.md](step-07.md) | pending | 0 | - | - |
+| S06 | [step-06.md](step-06.md) | done | 1 | ef2bd4b | Was blocked (46 vs 45 chips); user chose 45. Passed first review |
+| S07 | [step-07.md](step-07.md) | in-progress | 0 | - | - |
 | S08 | [step-08.md](step-08.md) | pending | 0 | - | - |
 | S09 | [step-09.md](step-09.md) | pending | 0 | - | - |
 | S10 | [step-10.md](step-10.md) | pending | 0 | - | - |
@@ -22,6 +22,9 @@ Status: pending | in-progress | done | skipped | blocked
 
 ## Deviations
 Deviations from a step file's implementation suggestions, as reported by its implementer and accepted by its reviewer.
+
+- (S06) Images deleted with a plain delete instead of `git rm` (agents may not stage); deletions committed by the checkpoint commit.
+- (S06) Toolbox has 45 chips, not 46: user decision (Visual Studio was double-counted in the step file).
 
 ## Checks confirmed by the user
 - (S01) Check 8 (reduced motion jumps instantly), check 12 (nav "Main", section regions named by h2), check 15 (brand accessible name, spans not exposed).
