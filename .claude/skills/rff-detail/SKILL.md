@@ -1,6 +1,6 @@
 ---
 name: rff-detail
-description: Turn each step of ".rff/implementation-steps.md" (written by rff-breakdown) into a deep, implementation-ready design file ".rff/step-NN.md", one step at a time. Each step is designed in a fresh, clean context, reviewed by a separate new agent with a clear context and then with the user until approved, and only then does the next step start. Each file specifies the structure to build or change (files, classes, interfaces, enums, methods, attributes, or the stack's equivalents such as HTML sections, CSS classes and JS functions), the complex logic flows as mermaid diagrams, and exactly what must be tested, while keeping SOLID, DRY and Clean Code principles. Each step file is isolated: it never mentions or decides anything for other steps, and any conflict with another step aborts the run so the user fixes the plan. Use when the user wants to detail, design, deepen or spec out the implementation steps of a feature request.
+description: Turn each step of ".rff/implementation-steps.md" (written by rff-breakdown) into a deep, implementation-ready design file ".rff/step-NN.md", one step at a time. Each step is designed by a new agent and reviewed by a separate new agent, both starting with a clean context when the step starts and keeping it through every review round of that step, then reviewed with the user until approved, and only then does the next step start. Each file specifies the structure to build or change (files, classes, interfaces, enums, methods, attributes, or the stack's equivalents such as HTML sections, CSS classes and JS functions), the complex logic flows as mermaid diagrams, and exactly what must be tested, while keeping SOLID, DRY and Clean Code principles. Each step file is isolated: it never mentions or decides anything for other steps, and any conflict with another step aborts the run so the user fixes the plan. Use when the user wants to detail, design, deepen or spec out the implementation steps of a feature request.
 argument-hint: "[step ids, e.g. S03 or S02,S05 | path to implementation-steps file]"
 ---
 
@@ -9,8 +9,10 @@ argument-hint: "[step ids, e.g. S03 or S02,S05 | path to implementation-steps fi
 Turn the plan in `.rff/implementation-steps.md` into one detailed design file per step (`.rff/step-01.md`, `.rff/step-02.md`, ...), **one step at a time**:
 
 1. Each step is designed in a **fresh, clean context** (a new subagent that knows only that step, the shared contract and the approved files it depends on).
-2. The step is **reviewed**, first by another new subagent with a clear context (a new one for every review round), then by the user, and revised until the user approves it.
+2. The step is **reviewed**, first by another new subagent with a clear context, then by the user, and revised until the user approves it.
 3. Only then does the **next step** start.
+
+**Agent lifetime.** The designer and the reviewer of a step are both started fresh at the start of that step's loop, and both keep their context until the step's loop is over (the step is approved, skipped or aborted). Every revision goes back to the same designer and every re-review goes back to the same reviewer, with `SendMessage`. The next step gets a new designer and a new reviewer. The only exception is **Redo from scratch** (3.3), which restarts the step's loop, so both agents are replaced.
 
 You are the orchestrator. Keep your own context light: you do not design or review steps yourself and you do not read the codebase in depth. The detailed design rules live in `step-design.md` and the review rules in `step-review.md`, next to this `SKILL.md` (in this skill's base directory).
 
@@ -99,7 +101,7 @@ Start a **new** subagent with the Agent tool (`subagent_type: general-purpose`; 
 - The instruction: "Follow `step-design.md` exactly. Detail only this step: do not mention other steps or decide anything for them. If you find a conflict with another step, do not write the step file; report it with status `conflict`. Otherwise write only the step file. Report back in the format at the end of `step-design.md`."
 - Any user decisions relevant to this step that are not yet in the contract.
 
-Do not paste the plan, the code or other step files into the brief; the subagent reads what it needs from the paths. Keep its agent id: revisions go back to the same subagent.
+Do not paste the plan, the code or other step files into the brief; the subagent reads what it needs from the paths. Keep its agent id: every revision of this step goes back to the same subagent, until the step's loop is over.
 
 Set the step's status to `draft` in the contract.
 
@@ -107,19 +109,25 @@ Set the step's status to `draft` in the contract.
 
 If the designer subagent reports status `conflict`, abort as described in "Step isolation and conflicts", using its conflict list.
 
-Otherwise the step file is reviewed by a **new** reviewer subagent, never by you and never by the designer. Start it with the Agent tool (`subagent_type: general-purpose`; never `fork`, and never `SendMessage` to an earlier reviewer). Every review round gets its own new reviewer, so each one starts with a clear context. Brief it with:
+Otherwise the step file is reviewed by a reviewer subagent, never by you and never by the designer.
+
+**First review of the step.** Start a **new** reviewer with the Agent tool (`subagent_type: general-purpose`; never `fork`, and never a reviewer from an earlier step), so it starts with a clear context. Brief it with:
 
 - The step id and title, and the path of the step file to review.
 - Absolute paths to: `step-review.md` and `step-design.md` (in this skill's base directory), the plan, the source RFF, `.rff/design-contract.md`, and the **approved** step files of the steps this one depends on.
-- The instruction: "Follow `step-review.md` exactly. Review only this step file; do not edit any file. Report back in the format at the end of `step-review.md`."
+- The instruction: "Follow `step-review.md` exactly. Review only this step file; do not edit any file. Report back in the format at the end of `step-review.md`. You will be asked to re-review this file after each revision until the step is approved."
 
-Do not give the reviewer the designer's report, earlier review results, your opinion or any of this conversation: it judges the file against its sources only.
+Keep its agent id.
+
+**Later reviews of the same step** (after a `fail` fix or a user revision): send the same reviewer a message with `SendMessage`: "The step file was revised. Re-review it following `step-review.md` (section 5 for re-reviews) and report in the same format." When the revision came from the user (3.3), add the user's feedback in their words, so the reviewer treats it as an approved decision for this step.
+
+Never give the reviewer the designer's report, your opinion or any of the rest of this conversation: it judges the file against its sources, its own earlier findings and the user's feedback only.
 
 Act on the verdict:
 
 - `pass`: go to 3.3.
 - `conflict`: abort as described in "Step isolation and conflicts", using the reviewer's conflict list.
-- `fail`: send the issues, as the reviewer wrote them, to the **designer** subagent with `SendMessage` and wait for the corrected file (a `conflict` report from the designer aborts). Then run a new review round with a new reviewer. After 3 failed rounds, bring the remaining issues to the user in 3.3.
+- `fail`: send the issues, as the reviewer wrote them, to the **designer** subagent with `SendMessage` and wait for the corrected file (a `conflict` report from the designer aborts). Then run another review round with the same reviewer. After 3 failed rounds, bring the remaining issues to the user in 3.3.
 
 ### 3.3 Review it with the user
 
@@ -132,10 +140,10 @@ Then ask with `AskUserQuestion` (one question, plus up to three for the subagent
 
 - **Approve**: the step is final.
 - **Revise**: the user gives feedback ("Other" or a follow-up message).
-- **Redo from scratch**: discard and redesign in a brand-new subagent, with the user's guidance.
+- **Redo from scratch**: discard the file, drop the current designer and reviewer, and restart the step's loop at 3.1 with a brand-new designer (given the user's guidance) and, in 3.2, a brand-new reviewer.
 - **Skip for now**: leave it as `draft` and move on (only if no later selected step depends on it).
 
-On **Revise**, first check that the feedback stays inside this step. If it asks for something that belongs to another step or changes another step, it is a conflict: abort. Otherwise send the user's feedback, in their words, to the same subagent with `SendMessage`, then repeat 3.2 and 3.3. Loop until the user approves.
+On **Revise**, first check that the feedback stays inside this step. If it asks for something that belongs to another step or changes another step, it is a conflict: abort. Otherwise send the user's feedback, in their words, to the same designer with `SendMessage`, then repeat 3.2 (with the same reviewer) and 3.3. Loop until the user approves.
 
 ### 3.4 Close the step
 
@@ -145,7 +153,7 @@ When the user approves:
 2. If closing the step would change something another step relies on (a renamed, changed or removed shared item), it is a conflict: abort instead of approving.
 3. Tell the user in one line that the step is approved and which step comes next, then start 3.1 for the next step.
 
-The contract is the only thing carried forward: the next step's subagent starts clean and learns about earlier steps only through the contract and the approved files it depends on.
+The step's loop is now over: its designer and reviewer are not used again. The contract is the only thing carried forward: the next step's new designer and new reviewer start clean, and the designer learns about earlier steps only through the contract and the approved files it depends on.
 
 ## 4. Finish
 
@@ -161,7 +169,7 @@ When every selected step is approved or skipped:
 If the Agent tool is not available, still work one step at a time, and keep design and review in separate clean contexts by splitting them across runs:
 
 1. **Design run**: design the step yourself by following `step-design.md`, write the file, set it to `draft` with the note `awaiting review` in the contract, and tell the user to clear the context (`/clear`) and run `rff-detail` again.
-2. **Review run**: a step marked `awaiting review` is picked up first. Review it by following `step-review.md`, without reading anything about how it was designed beyond the step file. On `pass`, run 3.3 and close it with 3.4. On `fail`, fix the issues, keep it `awaiting review`, and tell the user to `/clear` and run again, so the fixed file gets a fresh review. On `conflict`, abort.
+2. **Review run**: a step marked `awaiting review` is picked up first. Review it by following `step-review.md`, without reading anything about how it was designed beyond the step file. On `pass`, run 3.3 and close it with 3.4. On `fail`, fix the issues and re-review the fixed file in the same run (section 5 of `step-review.md`), repeating until `pass`; the review context is kept until the step is approved. On `conflict`, abort.
 3. After a step is approved, tell the user to `/clear` and run `rff-detail` again; the contract makes the next run resume at the next pending step.
 
 The isolation and conflict rules apply unchanged.
@@ -169,7 +177,7 @@ The isolation and conflict rules apply unchanged.
 ## Guidelines
 
 - One step at a time, always. No parallel subagents, no batching of steps.
-- Designer and reviewer are always different agents, and every reviewer starts with a clear context. You never review a step yourself.
+- Designer and reviewer are always different agents. Both start with a clear context at the start of a step's loop and keep it until that loop is over; they are never reused for another step. You never review a step yourself.
 - The plan is the source of truth for scope and ownership. Never change it, and never work around it: any conflict with it aborts the run so the user fixes the plan.
 - Forward the user's feedback faithfully; do not reinterpret it.
 - Write in the same language as the plan.

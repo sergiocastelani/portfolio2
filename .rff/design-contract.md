@@ -9,7 +9,7 @@
 | S01 | Page shell with sticky navigation and section anchors | approved | [step-01.md](step-01.md) |
 | S02 | Hero presents the senior full-stack profile above the fold | approved | [step-02.md](step-02.md) |
 | S03 | Footer with automatic year and social icons | approved | [step-03.md](step-03.md) |
-| S04 | Search and link-preview metadata | pending | - |
+| S04 | Search and link-preview metadata | approved | [step-04.md](step-04.md) |
 | S05 | About section with summary and key-numbers strip | pending | - |
 | S06 | Expertise cards and full toolbox replace the stock-image skills | pending | - |
 | S07 | "What I bring" replaces Objectives | pending | - |
@@ -68,3 +68,7 @@ Decisions approved during a step's review, each about that step's own work only.
 - (S02) `images/photo2.png` (1.5 MB) is not resized in the hero work.
 - (S03) Footer icon links are gray (`--bs-secondary-color`) at rest and brand green (`--my-secondary`) on hover, no underline.
 - (S03) Footer year comes from the visitor's device clock (`new Date().getFullYear()`), not clamped; static "2026" is the no-JS fallback.
+- (S04) Meta description used as written (also for `og:description` and `twitter:description`): "Senior Software Engineer with 27 years of experience: full-stack C#/.NET, TypeScript and React, AI agents, and deep C++ and computer graphics expertise."
+- (S04) Extra tags kept beyond the plan's minimum: `og:image:width`/`og:image:height` (1069), `og:image:alt` and `twitter:image:alt` ("Portrait of Sérgio C. Castelani Jr.").
+- (S04) `twitter:card=summary` (square photo); `images/photo2.png` used as is for the preview image.
+- (S04) A cross-domain canonical warning in a localhost Lighthouse run is expected and accepted; the canonical audit is checked after deployment.

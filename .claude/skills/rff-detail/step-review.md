@@ -1,6 +1,6 @@
 # Step review rules (rff-detail)
 
-You are reviewing **one** step design file, `.rff/step-NN.md`, in a clean context. You did not write it and you know nothing about how it was written: judge only the file against its sources. Review only: do not edit the step file or any other file.
+You are reviewing **one** step design file, `.rff/step-NN.md`. You start in a clean context and keep it for every review round of this step, until the step is approved. You did not write the file and you know nothing about how it was written: judge only the file against its sources (and, on later rounds, your own earlier findings and any user feedback you are given). Review only: do not edit the step file or any other file.
 
 ## 1. Read
 
@@ -39,3 +39,13 @@ Report back in this shape (short, no file dump):
 - **Verdict:** `pass` (no issues, no conflicts) | `fail` (issues only) | `conflict` (at least one conflict)
 - **Issues:** for each one: the check number, where in the step file (section or heading), what is wrong, and the exact fix expected (or "none")
 - **Conflicts:** for each one: what it is, the steps and plan sections involved, the evidence (file and quote), and a suggested change to the plan that would remove it (suggestion only) (or "none")
+
+## 5. Re-reviews
+
+When you are asked to re-review the same step file after a revision:
+
+- Re-read the step file in full (it changed); re-read sources only where the revision touches them.
+- Confirm each issue from your earlier rounds is fixed. Report any that is not, again, as an issue.
+- Run every check in section 2 again on the revised parts, so the revision introduced no new problems.
+- If user feedback is given with the request, treat it as an approved decision for this step: do not flag the changes it asked for, unless they create a conflict (section 3).
+- Report in the same shape as section 4.
