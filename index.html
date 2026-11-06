@@ -445,8 +445,32 @@
       </div>
     </section>
 
-    <footer class="mt-5 text-center">
-      <small class="blockquote-footer">Sérgio C Castelani Jr (2023)</small>
+    <footer class="mt-5 py-4 text-center">
+      <ul class="list-unstyled d-flex justify-content-center gap-2 mb-2">
+        <li>
+          <a class="footer-social-link" href="https://www.linkedin.com/in/sergiocastelani/"
+             target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="bi bi-linkedin" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a class="footer-social-link" href="https://github.com/sergiocastelani"
+             target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="bi bi-github" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a class="footer-social-link" href="mailto:sergio.castelani@gmail.com" aria-label="Email">
+            <i class="bi bi-envelope" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+      <p class="small text-body-secondary mb-0">
+        &copy; <span id="footer-year">2026</span> Sérgio C. Castelani Jr.
+      </p>
+      <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+      </script>
     </footer>
   </main>
   

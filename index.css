@@ -123,6 +123,21 @@ section[id] {
   box-shadow: none !important;   /* drop Bootstrap's blue focus glow */
 }
 
+/* Footer */
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.25rem;
+  color: var(--bs-secondary-color);
+}
+.footer-social-link:hover {
+  color: var(--my-secondary);
+  text-decoration: none;
+}
+
 /* Bootstrap overrides */
 .btn-primary {
   background-color: var(--my-primary) !important;
