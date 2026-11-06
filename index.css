@@ -175,6 +175,76 @@ section[id] {
   color: var(--my-primary-text);   /* 5.85:1 on white, above the 3:1 non-text minimum */
 }
 
+/* Experience timeline */
+.timeline {
+  --timeline-axis: 0.5rem;          /* x position of the line's center; left edge on mobile */
+  --timeline-gap: 1.5rem;           /* space between the line and the content (and the date column) */
+  --timeline-line-width: 3px;
+  --timeline-dot-size: 1rem;
+  --timeline-dot-ring: 4px;         /* band-colored ring that separates the dot from the line */
+  --timeline-row-height: 1.5rem;    /* first line of an .h5 heading: 1.25rem x 1.2 line-height */
+  --timeline-date-width: 9.5rem;    /* date column from 768px up; fits "Oct 2023 – Oct 2026" */
+  position: relative;
+}
+
+.timeline::before {                 /* the vertical line */
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--timeline-axis);
+  width: var(--timeline-line-width);
+  background-color: var(--my-primary);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: calc(var(--timeline-axis) + var(--timeline-gap));
+}
+.timeline-item:not(:last-child) {
+  padding-bottom: 2.5rem;
+}
+
+.timeline-item::before {            /* the dot, centered on the line and on the heading's first line */
+  content: "";
+  position: absolute;
+  left: var(--timeline-axis);
+  top: calc((var(--timeline-row-height) - var(--timeline-dot-size)) / 2);
+  width: var(--timeline-dot-size);
+  height: var(--timeline-dot-size);
+  border-radius: 50%;
+  background-color: var(--my-primary);
+  box-shadow: 0 0 0 var(--timeline-dot-ring) var(--bs-gray-100);
+  transform: translateX(-50%);
+}
+
+.timeline-company {
+  color: var(--my-primary-text);
+}
+
+.timeline-date {
+  --bs-badge-padding-y: 0;
+  line-height: var(--timeline-row-height);
+  color: var(--bs-secondary-color);
+  background-color: var(--bs-secondary-bg);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .timeline {
+    --timeline-axis: calc(var(--timeline-date-width) + var(--timeline-gap));
+  }
+  .timeline-date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--timeline-date-width);
+    white-space: normal;
+  }
+}
+
 /* Bootstrap overrides */
 .btn-primary {
   background-color: var(--my-primary) !important;
