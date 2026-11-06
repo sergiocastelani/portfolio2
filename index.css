@@ -1,6 +1,8 @@
 html {
   --my-primary: #86af49;
   --my-secondary: rgb(117, 153, 64);
+  --my-primary-text: #4f6e24;   /* text green: 5.85:1 on white, 5.55:1 on --bs-gray-100 */
+  --main-nav-height: 3.5rem;    /* rendered height of #main-nav (collapsed) */
 }
 
 main {
@@ -8,16 +10,16 @@ main {
 }
 
 a {
-  color: var(--my-primary);
+  color: var(--my-primary-text);
   text-decoration: none;
 }
 a:hover {
-  color: var(--my-secondary);
+  color: var(--my-primary-text);
   text-decoration: underline;
 }
 
 strong {
-  color: var(--my-primary);
+  color: var(--my-primary-text);
   font-weight: 500;
 }
 
@@ -78,6 +80,46 @@ strong {
 
 .project-img-overlay:hover {
   opacity: 100%;
+}
+
+/* Layout and navigation */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--main-nav-height) + 1rem);
+}
+
+#main-nav {
+  --bs-navbar-hover-color: var(--my-primary-text);
+  --bs-navbar-brand-hover-color: var(--my-primary-text);
+}
+#main-nav a:hover {
+  text-decoration: none;         /* color change is the navbar hover cue; overrides global a:hover underline */
+}
+#main-nav .navbar-toggler:focus {
+  box-shadow: none;              /* replaced by the global :focus-visible outline */
+}
+
+.page-section {
+  padding: 3rem 1rem;
+}
+
+.section-alt {
+  background-color: var(--bs-gray-100);
+}
+
+.skill-chip {
+  color: var(--my-primary-text);
+  background-color: color-mix(in srgb, var(--my-primary) 15%, #fff);   /* #edf3e4 */
+  font-weight: 500;
+}
+
+:focus-visible {
+  outline: 3px solid var(--my-primary-text) !important;
+  outline-offset: 2px;
+  box-shadow: none !important;   /* drop Bootstrap's blue focus glow */
 }
 
 /* Bootstrap overrides */

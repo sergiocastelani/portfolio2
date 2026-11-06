@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sérgio C Castelani Jr</title>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -13,7 +13,49 @@
 </head>
 <body>
 
-  <main class="container-lg p-5 pb-0">
+  <nav id="main-nav" class="navbar navbar-expand-md sticky-top bg-white border-bottom" aria-label="Main">
+    <div class="container-lg">
+      <a class="navbar-brand fw-bold" href="#profile" aria-label="Sérgio C. Castelani Jr. (SCCJ)">
+        <span class="d-none d-sm-inline" aria-hidden="true">Sérgio C. Castelani Jr.</span>
+        <span class="d-sm-none" aria-hidden="true">SCCJ</span>
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#main-nav-menu"
+              aria-controls="main-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="main-nav-menu" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <script>
+    // Close the open mobile menu before scrolling. The sticky navbar takes up space in the page
+    // flow, so scrolling while it collapses would land the target too far down.
+    (() => {
+      const nav = document.getElementById('main-nav');
+      const menu = document.getElementById('main-nav-menu');
+
+      nav.addEventListener('click', (event) => {
+        const link = event.target.closest('a[href^="#"]');
+        if (!link || !window.bootstrap || !menu.classList.contains('show')) return; // native anchor jump
+
+        event.preventDefault();
+        menu.addEventListener('hidden.bs.collapse', () => {
+          link.click();                          // menu is closed now, so this re-click is a native anchor navigation
+        }, { once: true });
+        bootstrap.Collapse.getOrCreateInstance(menu).hide();
+      });
+    })();
+  </script>
+
+  <main class="container-lg p-3 p-md-5 pb-0 pb-md-0">
     <section id="profile" class="row p-3 g-3">
       <div class="col-12 col-md-8">
         <h1>Sérgio C Castelani Jr</h1>
@@ -50,6 +92,32 @@
       <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
         <img id="profile-img" src="./images/photo2.png">
       </div>
+    </section>
+
+    <section id="about" class="page-section" aria-labelledby="about-heading">
+      <h2 id="about-heading" class="border-start border-5 border-primary ps-3 fw-bold mb-5">About</h2>
+    </section>
+
+    <section id="skills" class="page-section section-alt" aria-labelledby="skills-heading">
+      <h2 id="skills-heading" class="border-start border-5 border-primary ps-3 fw-bold mb-5">Expertise</h2>
+    </section>
+
+    <section id="value" class="page-section" aria-labelledby="value-heading">
+      <h2 id="value-heading" class="border-start border-5 border-primary ps-3 fw-bold mb-5">What I bring</h2>
+    </section>
+
+    <section id="experience" class="page-section section-alt" aria-labelledby="experience-heading">
+      <h2 id="experience-heading" class="border-start border-5 border-primary ps-3 fw-bold mb-5">Experience</h2>
+    </section>
+
+    <section id="projects" class="page-section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="border-start border-5 border-primary ps-3 fw-bold mb-5">Featured Work</h2>
+      <div id="projects-professional"></div>
+      <div id="projects-personal"></div>
+    </section>
+
+    <section id="education" class="page-section section-alt" aria-labelledby="education-heading">
+      <h2 id="education-heading" class="border-start border-5 border-primary ps-3 fw-bold mb-5">Education &amp; Languages</h2>
     </section>
 
     <section class="p-3 mt-5">
