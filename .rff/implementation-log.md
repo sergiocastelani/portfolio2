@@ -7,7 +7,7 @@
 |------|------|--------|--------|-----------|-------|
 | S01 | [step-01.md](step-01.md) | done | 1 | d4540c1 | Passed first review; checks 8, 12, 15 confirmed by user |
 | S02 | [step-02.md](step-02.md) | done | 1 | c66fbd5 | Passed first review; check 6 confirmed by user |
-| S03 | [step-03.md](step-03.md) | in-progress | 0 | - | - |
+| S03 | [step-03.md](step-03.md) | done | 1 | 56c2fa0 | Passed first review; Manual 2 (Email) confirmed by user |
 | S04 | [step-04.md](step-04.md) | pending | 0 | - | - |
 | S05 | [step-05.md](step-05.md) | pending | 0 | - | - |
 | S06 | [step-06.md](step-06.md) | pending | 0 | - | - |
@@ -26,3 +26,4 @@ Deviations from a step file's implementation suggestions, as reported by its imp
 ## Checks confirmed by the user
 - (S01) Check 8 (reduced motion jumps instantly), check 12 (nav "Main", section regions named by h2), check 15 (brand accessible name, spans not exposed).
 - (S02) Check 6 (LinkedIn/GitHub open in new tab; Email opens mail client with no empty tab).
+- (S03) Manual 2 (footer Email opens mail client with no empty tab; LinkedIn/GitHub open in new tab).
