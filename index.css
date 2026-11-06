@@ -30,6 +30,7 @@ strong {
 #profile-img {
   width: 95%;
   max-width: 300px;
+  height: auto; /* keep the square ratio when the width/height attributes are present */
 }
 
 #objectives-list {
