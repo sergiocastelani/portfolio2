@@ -10,7 +10,7 @@
 | S02 | Hero presents the senior full-stack profile above the fold | approved | [step-02.md](step-02.md) |
 | S03 | Footer with automatic year and social icons | approved | [step-03.md](step-03.md) |
 | S04 | Search and link-preview metadata | approved | [step-04.md](step-04.md) |
-| S05 | About section with summary and key-numbers strip | pending | - |
+| S05 | About section with summary and key-numbers strip | approved | [step-05.md](step-05.md) |
 | S06 | Expertise cards and full toolbox replace the stock-image skills | pending | - |
 | S07 | "What I bring" replaces Objectives | pending | - |
 | S08 | Experience timeline with all six roles | pending | - |
@@ -42,7 +42,7 @@ Names that cross steps: element ids, CSS classes and variables, data attributes,
 | `.skill-chip` | CSS class | S01 | S06, S08, S09 | `<span class="badge skill-chip">` light-green tint chip (`#edf3e4` bg, `--my-primary-text` text, Bootstrap badge radius) |
 | Bootstrap Icons 1.11.3 | CDN link | S01 | S06, S11 | Icons `<link>` line in `<head>` |
 | `#footer-year` | element id | S03 | - | `<span>` in the footer copyright line, static "2026", set by the footer's own inline script |
-| `.stat-tile` | CSS class | S05 | - | Inside `#about` only |
+| `.stat-tile` | CSS class | S05 | - | Inside `#about` only; white tile with Bootstrap border and `--bs-border-radius-lg` (`.about-summary`, `.stat-tile-icon`, `.stat-tile-number` stay private to S05) |
 | `.expertise-card` | CSS class | S06 | - | Inside `#skills` only |
 | `.value-item` | CSS class | S07 | - | Inside `#value` only |
 | `.timeline`, `.timeline-item`, `.timeline-date` | CSS classes | S08 | - | Inside `#experience` only |
@@ -72,3 +72,8 @@ Decisions approved during a step's review, each about that step's own work only.
 - (S04) Extra tags kept beyond the plan's minimum: `og:image:width`/`og:image:height` (1069), `og:image:alt` and `twitter:image:alt` ("Portrait of Sérgio C. Castelani Jr.").
 - (S04) `twitter:card=summary` (square photo); `images/photo2.png` used as is for the preview image.
 - (S04) A cross-domain canonical warning in a localhost Lighthouse run is expected and accepted; the canonical audit is checked after deployment.
+- (S05) Summary copy from RFF §7.3 used as written; tile icons `bi-calendar-check`, `bi-building`, `bi-briefcase`, `bi-cpu`.
+- (S05) Label "yrs C++" kept exactly as written (no expansion or visually hidden text).
+- (S05) Tiles are white with a border on the white About section (no tint or gray fill).
+- (S05) Screen readers in browse mode may announce a tile's number and label as two lines within the same list item; accepted.
+- (S05) Approved without user questions: the user accepted all recommended options for this run.
