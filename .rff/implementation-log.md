@@ -12,8 +12,8 @@
 | S05 | [step-05.md](step-05.md) | done | 1 | 8236fca | Passed first review; Manual 11 (forced colors) needs-human, deferred |
 | S06 | [step-06.md](step-06.md) | done | 1 | ef2bd4b | Was blocked (46 vs 45 chips); user chose 45. Passed first review |
 | S07 | [step-07.md](step-07.md) | done | 1 | 55735db | Passed first review |
-| S08 | [step-08.md](step-08.md) | in-progress | 0 | - | - |
-| S09 | [step-09.md](step-09.md) | pending | 0 | - | - |
+| S08 | [step-08.md](step-08.md) | done | 1 | a853161 | Passed first review; M8 Safari/VoiceOver and M9 200% zoom needs-human, deferred |
+| S09 | [step-09.md](step-09.md) | in-progress | 0 | - | - |
 | S10 | [step-10.md](step-10.md) | pending | 0 | - | - |
 | S11 | [step-11.md](step-11.md) | pending | 0 | - | - |
 | S12 | [step-12.md](step-12.md) | pending | 0 | - | - |
