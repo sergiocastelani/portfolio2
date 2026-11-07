@@ -30,6 +30,10 @@ Deviations from a step file's implementation suggestions, as reported by its imp
 
 - (S10) hashmarks.png deleted with a plain delete instead of `git rm`; committed by the checkpoint commit.
 
+- (S12) CLAUDE.md lists CSS blocks in code order (Footer after Layout and navigation), logged as F-02.
+- (S12) Served with `python -m http.server` instead of `npx serve .` (no package downloads).
+- (S12) AC-11 Lighthouse recorded as Pending (needs a human); SC-07/SC-08 run in headless Edge over CDP.
+
 ## Checks confirmed by the user
 - (S01) Check 8 (reduced motion jumps instantly), check 12 (nav "Main", section regions named by h2), check 15 (brand accessible name, spans not exposed).
 - (S02) Check 6 (LinkedIn/GitHub open in new tab; Email opens mail client with no empty tab).
