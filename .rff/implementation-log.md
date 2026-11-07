@@ -15,8 +15,8 @@
 | S08 | [step-08.md](step-08.md) | done | 1 | a853161 | Passed first review; M8 Safari/VoiceOver and M9 200% zoom needs-human, deferred |
 | S09 | [step-09.md](step-09.md) | done | 1 | e8b6781 | Passed first review |
 | S10 | [step-10.md](step-10.md) | done | 1 | cdc3fea | Passed first review; M8 "View not exposed" in real a11y tree needs-human, deferred |
-| S11 | [step-11.md](step-11.md) | in-progress | 0 | - | - |
-| S12 | [step-12.md](step-12.md) | pending | 0 | - | - |
+| S11 | [step-11.md](step-11.md) | done | 1 | 09e26e1 | Passed first review; M4 Safari/VoiceOver needs-human, deferred |
+| S12 | [step-12.md](step-12.md) | in-progress | 0 | - | - |
 
 Status: pending | in-progress | done | skipped | blocked
 
