@@ -269,6 +269,11 @@ section[id] {
   color: var(--my-primary);
 }
 
+/* Education */
+.education-icon {
+  color: var(--my-primary-text);
+}
+
 /* Bootstrap overrides */
 .btn-primary {
   background-color: var(--my-primary) !important;
