@@ -38,6 +38,9 @@ strong {
   height: 50px;
   border-radius: 50%;
 }
+.social-btn.btn-primary {
+  background-color: var(--my-primary-text) !important;   /* white icon 5.85:1, above the 3:1 non-text minimum */
+}
 
 /* Personal projects */
 .project-card-img {
