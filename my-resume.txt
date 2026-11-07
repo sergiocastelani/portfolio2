@@ -1,0 +1,159 @@
+﻿Sérgio C. Castelani Jr.
+Senior Software Engineer
+27 years of experience
+sergio.castelani@gmail.com
+________________
+
+
+Professional Summary
+Senior Software Engineer with 27 years of experience designing, developing, and delivering software solutions across multiple industries, including real estate, finance, CAD systems, fashion technology, telecommunications, and medical imaging.
+Strong background in full-stack web development, C++ engineering, computer graphics, performance optimization, and cross-platform systems. Proven ability to work in startups, scale-ups, established international companies and solving complex business and technical challenges.
+Hands-on experience with C++, C# / ASP.NET, Node.js, JavaScript/TypeScript, Python, AI frameworks, cloud platforms, databases, graphics engines, and modern web architectures. Passionate about innovation, efficiency, and building practical solutions that create measurable value.
+________________
+
+
+Technical Skills
+Programming Languages
+* C#
+* JavaScript / TypeScript
+* PHP
+* Python
+* HTML / CSS
+* C / C++
+Frameworks & Libraries
+* ASP.NET
+* Microsoft Agent Framework
+* React
+* Redux
+* Qt
+* Boost
+* Bootstrap
+* Express
+Databases
+* PostgreSQL
+* SQL Server
+* MySQL
+* NoSQL
+Tools & Platforms
+* Visual Studio
+* VS Code
+* Git
+* Docker
+* Azure
+* GitHub Copilot CLI, Codex, Claude
+Specialized Areas
+* Fullstack web development
+* Computer Graphics
+* OpenGL
+* CUDA
+* Multithreading
+* DICOM / Medical Imaging
+* VoIP / SIP
+* Real-Time Systems
+________________
+
+
+
+
+Professional Experience
+Tech6 — Senior Full-Stack Web Developer
+Oct 2023 – Oct 2026
+Key Projects:
+* Sysphera: a C#/Typescript/MSSQL single page application for data storage and analysis using OLAP cubes.
+* Drapo: a Typescript framework for frontend development (https://github.com/spadrapo/drapo)
+* T6-GPT: an AI assistant that helps to operate and get data insights from Sysphera 
+* Real estate management platform for a major U.S. client.
+Technologies:
+C#, ASP.NET, TypeScript, React, Redux, PostgreSQL, SQL Server, Docker, Azure, Microsoft Agent Framework, Visual Studio
+________________
+
+
+Graebert — Software Engineer
+Sep 2022 – Mar 2023
+Worked on a leading international CAD platform.
+Responsibilities:
+* Investigated and fixed software defects.
+* Improved performance bottlenecks.
+* Contributed primarily to the graphics engine.
+Technologies:
+C++, OpenGL, Qt, Multithreading, Visual Studio, Jira
+________________
+
+
+Audaces — Senior Software Engineer
+May 2017 – Sep 2022
+Multinational company focused on fashion technology software and hardware.
+Highlights:
+* Contributed to Audaces 4D, an advanced 3D fashion design platform.
+* Developed tools for 3D modeling and real-time cloth simulation.
+* Led prototype initiatives including:
+   * VR try-on mirror using Unity and body-tracking sensors
+   * WebGL garment visualization platform
+   * Industry 4.0 integrations with SENAI/SP
+Technologies:
+C++, OpenGL, Qt, Computer Graphics, Jenkins, Jira, Multithreading
+________________
+
+
+ITM Apps — CTO / Lead Developer
+Sep 2014 – Aug 2016
+Startup focused on condominium management solutions.
+Achievements:
+* Designed and developed APControle from the ground up.
+* Built a cloud-based condominium management platform.
+* Fully integrated the product with AWS infrastructure.
+Technologies:
+PHP, PostgreSQL, HTML, CSS, AWS
+________________
+
+
+
+
+
+
+
+
+
+
+AGM — Software Engineer
+Feb 2012 – Jan 2013
+Telecommunications software company.
+Responsibilities:
+* Designed and developed tools integrated with Cisco VoIP solutions.
+* Improved development processes and engineering workflows.
+* Standardized tools and technical environments.
+Technologies:
+C++, SIP, VoIP, TCP/IP
+________________
+
+
+Pixeon — Software Engineer
+Feb 2005 – Jan 2012
+Medical imaging software company.
+Achievements:
+* Developed high-performance thin-client systems for radiology workflows.
+* Built scalable pipeline-processing frameworks.
+* Delivered advanced 3D rendering systems for medical visualization.
+* Reduced maintenance costs and increased reporting flexibility.
+Additional Experience:
+* iOS application development and maintenance for one year.
+Technologies:
+C++, Python, Java, Assembly, OpenGL, CUDA, DICOM, Multithreading, Git
+________________
+
+
+
+
+Education
+Bachelor’s Degree in Computer Science
+Universidade Federal de Santa Catarina (UFSC)
+2003
+Full-Stack Web Development
+Growdev
+2023 – 2024
+________________
+
+
+Languages
+* Portuguese — Native / C2
+* English — Upper Intermediate / B2

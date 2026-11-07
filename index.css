@@ -1,6 +1,8 @@
 html {
   --my-primary: #86af49;
   --my-secondary: rgb(117, 153, 64);
+  --my-primary-text: #4f6e24;   /* text green: 5.85:1 on white, 5.55:1 on --bs-gray-100 */
+  --main-nav-height: 3.5rem;    /* rendered height of #main-nav (collapsed) */
 }
 
 main {
@@ -8,16 +10,16 @@ main {
 }
 
 a {
-  color: var(--my-primary);
+  color: var(--my-primary-text);
   text-decoration: none;
 }
 a:hover {
-  color: var(--my-secondary);
+  color: var(--my-primary-text);
   text-decoration: underline;
 }
 
 strong {
-  color: var(--my-primary);
+  color: var(--my-primary-text);
   font-weight: 500;
 }
 
@@ -28,25 +30,7 @@ strong {
 #profile-img {
   width: 95%;
   max-width: 300px;
-}
-
-#objectives-list {
-  list-style-type: none;
-  margin-top: -1em;
-}
-#objectives-list li {
-  line-height: 2rem;
-  margin-bottom: 1.5rem;
-}
-#objectives-list li::before {
-  content: "\25E6";
-  color: var(--bs-gray-500);
-  font-weight: bold;
-  display: inline-block;
-  width: 0.5em;
-  margin-left: -0.5em;
-  font-size: 2em;
-  vertical-align: sub;
+  height: auto; /* keep the square ratio when the width/height attributes are present */
 }
 
 .social-btn {
@@ -54,7 +38,11 @@ strong {
   height: 50px;
   border-radius: 50%;
 }
+.social-btn.btn-primary {
+  background-color: var(--my-primary-text) !important;   /* white icon 5.85:1, above the 3:1 non-text minimum */
+}
 
+/* Personal projects */
 .project-card-img {
   overflow: hidden;
   vertical-align: middle;
@@ -76,8 +64,217 @@ strong {
   align-items: center;
 }
 
-.project-img-overlay:hover {
+.project-img-overlay:hover,
+.project-card-img:focus-visible .project-img-overlay {
   opacity: 100%;
+}
+
+#more-projects-toggle {
+  --bs-btn-color: var(--my-primary-text);
+  --bs-btn-border-color: var(--my-primary-text);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: var(--my-primary-text);
+  --bs-btn-hover-border-color: var(--my-primary-text);
+  --bs-btn-active-color: var(--bs-white);
+  --bs-btn-active-bg: var(--my-primary-text);
+  --bs-btn-active-border-color: var(--my-primary-text);
+}
+
+/* Layout and navigation */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--main-nav-height) + 1rem);
+}
+
+#main-nav {
+  --bs-navbar-hover-color: var(--my-primary-text);
+  --bs-navbar-brand-hover-color: var(--my-primary-text);
+}
+#main-nav a:hover {
+  text-decoration: none;         /* color change is the navbar hover cue; overrides global a:hover underline */
+}
+#main-nav .navbar-toggler:focus {
+  box-shadow: none;              /* replaced by the global :focus-visible outline */
+}
+
+.page-section {
+  padding: 3rem 1rem;
+}
+
+.section-alt {
+  background-color: var(--bs-gray-100);
+}
+
+.skill-chip {
+  color: var(--my-primary-text);
+  background-color: color-mix(in srgb, var(--my-primary) 15%, #fff);   /* #edf3e4 */
+  font-weight: 500;
+}
+
+:focus-visible {
+  outline: 3px solid var(--my-primary-text) !important;
+  outline-offset: 2px;
+  box-shadow: none !important;   /* drop Bootstrap's blue focus glow */
+}
+
+/* Footer */
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.25rem;
+  color: var(--bs-secondary-color);
+}
+.footer-social-link:hover {
+  color: var(--my-secondary);
+  text-decoration: none;
+}
+
+/* About */
+.about-summary {
+  max-width: 75ch;                                  /* readable line length for the summary */
+}
+
+.stat-tile {
+  background-color: #fff;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius-lg);
+}
+
+.stat-tile-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--my-primary);                         /* decorative accent, aria-hidden */
+}
+
+.stat-tile-number {
+  color: var(--my-primary-text);                    /* 5.85:1 on white */
+}
+
+/* Expertise */
+.expertise-card {
+  border-top: 0.25rem solid var(--my-primary);   /* brand accent on the white card */
+}
+
+.expertise-card-icon {
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--my-primary);                       /* decorative fill color (aria-hidden) */
+}
+
+.expertise-card-years {
+  color: var(--my-primary-text);                  /* text green: 5.85:1 on the white card */
+}
+
+.toolbox-group + .toolbox-group {
+  border-top: var(--bs-border-width) solid var(--bs-border-color);
+  margin-top: 1rem;     /* replaces the row's -0.5rem gutter margin: 1rem gap above the divider */
+  padding-top: 0.5rem;  /* the row's 0.5rem column gutter completes the 1rem gap below the divider */
+}
+
+/* What I bring */
+.value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.value-item-icon {
+  flex-shrink: 0;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--my-primary-text);   /* 5.85:1 on white, above the 3:1 non-text minimum */
+}
+
+/* Experience timeline */
+.timeline {
+  --timeline-axis: 0.5rem;          /* x position of the line's center; left edge on mobile */
+  --timeline-gap: 1.5rem;           /* space between the line and the content (and the date column) */
+  --timeline-line-width: 3px;
+  --timeline-dot-size: 1rem;
+  --timeline-dot-ring: 4px;         /* band-colored ring that separates the dot from the line */
+  --timeline-row-height: 1.5rem;    /* first line of an .h5 heading: 1.25rem x 1.2 line-height */
+  --timeline-date-width: 9.5rem;    /* date column from 768px up; fits "Oct 2023 – Oct 2026" */
+  position: relative;
+}
+
+.timeline::before {                 /* the vertical line */
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--timeline-axis);
+  width: var(--timeline-line-width);
+  background-color: var(--my-primary);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: calc(var(--timeline-axis) + var(--timeline-gap));
+}
+.timeline-item:not(:last-child) {
+  padding-bottom: 2.5rem;
+}
+
+.timeline-item::before {            /* the dot, centered on the line and on the heading's first line */
+  content: "";
+  position: absolute;
+  left: var(--timeline-axis);
+  top: calc((var(--timeline-row-height) - var(--timeline-dot-size)) / 2);
+  width: var(--timeline-dot-size);
+  height: var(--timeline-dot-size);
+  border-radius: 50%;
+  background-color: var(--my-primary);
+  box-shadow: 0 0 0 var(--timeline-dot-ring) var(--bs-gray-100);
+  transform: translateX(-50%);
+}
+
+.timeline-company {
+  color: var(--my-primary-text);
+}
+
+.timeline-date {
+  --bs-badge-padding-y: 0;
+  line-height: var(--timeline-row-height);
+  color: var(--bs-secondary-color);
+  background-color: var(--bs-secondary-bg);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .timeline {
+    --timeline-axis: calc(var(--timeline-date-width) + var(--timeline-gap));
+  }
+  .timeline-date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--timeline-date-width);
+    white-space: normal;
+  }
+}
+
+/* Professional highlights */
+.highlight-card {
+  border-top: 4px solid var(--my-primary);   /* brand accent; static, not interactive */
+}
+
+.highlight-card-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--my-primary);
+}
+
+/* Education */
+.education-icon {
+  color: var(--my-primary-text);
 }
 
 /* Bootstrap overrides */

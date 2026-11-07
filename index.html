@@ -3,9 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sérgio C Castelani Jr</title>
+  <title>Sérgio C. Castelani Jr. | Senior Full-Stack Software Engineer</title>
+  <meta name="description" content="Senior Software Engineer with 27 years of experience: full-stack C#/.NET, TypeScript and React, AI agents, and deep C++ and computer graphics expertise.">
+  <link rel="canonical" href="https://portfolio.castelani.dev.br/">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- Open Graph (LinkedIn, Slack, Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://portfolio.castelani.dev.br/">
+  <meta property="og:title" content="Sérgio C. Castelani Jr. | Senior Full-Stack Software Engineer">
+  <meta property="og:description" content="Senior Software Engineer with 27 years of experience: full-stack C#/.NET, TypeScript and React, AI agents, and deep C++ and computer graphics expertise.">
+  <meta property="og:image" content="https://portfolio.castelani.dev.br/images/photo2.png">
+  <meta property="og:image:width" content="1069">
+  <meta property="og:image:height" content="1069">
+  <meta property="og:image:alt" content="Portrait of Sérgio C. Castelani Jr.">
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sérgio C. Castelani Jr. | Senior Full-Stack Software Engineer">
+  <meta name="twitter:description" content="Senior Software Engineer with 27 years of experience: full-stack C#/.NET, TypeScript and React, AI agents, and deep C++ and computer graphics expertise.">
+  <meta name="twitter:image" content="https://portfolio.castelani.dev.br/images/photo2.png">
+  <meta name="twitter:image:alt" content="Portrait of Sérgio C. Castelani Jr.">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -13,30 +32,73 @@
 </head>
 <body>
 
-  <main class="container-lg p-5 pb-0">
-    <section id="profile" class="row p-3 g-3">
-      <div class="col-12 col-md-8">
-        <h1>Sérgio C Castelani Jr</h1>
-        <h3 class="mb-3 fw-light">Senior Software Engineer</h3>
+  <nav id="main-nav" class="navbar navbar-expand-md sticky-top bg-white border-bottom" aria-label="Main">
+    <div class="container-lg">
+      <a class="navbar-brand fw-bold" href="#profile" aria-label="Sérgio C. Castelani Jr. (SCCJ)">
+        <span class="d-none d-sm-inline" aria-hidden="true">Sérgio C. Castelani Jr.</span>
+        <span class="d-sm-none" aria-hidden="true">SCCJ</span>
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#main-nav-menu"
+              aria-controls="main-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="main-nav-menu" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <script>
+    // Close the open mobile menu before scrolling. The sticky navbar takes up space in the page
+    // flow, so scrolling while it collapses would land the target too far down.
+    (() => {
+      const nav = document.getElementById('main-nav');
+      const menu = document.getElementById('main-nav-menu');
 
-        <p>
-          Software engineer with more than 20 years of experience developing desktop and computer graphics systems.<br/>
-          Currently, I'm deepening my skills about full stack development at Growdev.
+      nav.addEventListener('click', (event) => {
+        const link = event.target.closest('a[href^="#"]');
+        if (!link || !window.bootstrap || !menu.classList.contains('show')) return; // native anchor jump
+
+        event.preventDefault();
+        menu.addEventListener('hidden.bs.collapse', () => {
+          link.click();                          // menu is closed now, so this re-click is a native anchor navigation
+        }, { once: true });
+        bootstrap.Collapse.getOrCreateInstance(menu).hide();
+      });
+    })();
+  </script>
+
+  <main class="container-lg p-3 p-md-5 pb-0 pb-md-0">
+    <section id="profile" class="row p-3 g-3 align-items-md-center">
+      <div class="col-12 col-md-8">
+        <h1>Sérgio C. Castelani Jr.</h1>
+        <p class="h3 mb-3 fw-light">Senior Software Engineer</p>
+
+        <p class="lead">
+          Full-stack engineer (C#/.NET, TypeScript, React) with 27 years of experience, from C++ graphics engines to AI agents.
         </p>
 
-        <a class="social-btn btn btn-primary p-3" href="https://www.linkedin.com/in/sergiocastelani/">
+        <a class="social-btn btn btn-primary p-3" href="https://www.linkedin.com/in/sergiocastelani/"
+           target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg class="align-baseline" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 512 512" style="width: 26px; margin: -5px 0 0 -3px">
             <path fill="currentColor" d="M100.3 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.6 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.3 61.9 111.3 142.3V448z"></path>
           </svg>
         </a>
 
-        <a class="social-btn btn btn-primary p-2" href="https://github.com/sergiocastelani">
+        <a class="social-btn btn btn-primary p-2" href="https://github.com/sergiocastelani"
+           target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <svg class="align-baseline" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
             <path fill="currentColor" d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z"></path>
           </svg>
         </a>
 
-        <a class="social-btn btn btn-primary p-2" href="mailto:sergio.castelani@gmail.com">
+        <a class="social-btn btn btn-primary p-2" href="mailto:sergio.castelani@gmail.com" aria-label="Email">
           <svg viewBox="-3 -7 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke="#ffffff" aria-hidden="true" focusable="false">
             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> 
               <g transform="translate(-414.000000, -261.000000)" fill="#ffffff"> 
@@ -48,100 +110,472 @@
 
       </div>
       <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
-        <img id="profile-img" src="./images/photo2.png">
+        <img id="profile-img" src="./images/photo2.png" width="1069" height="1069"
+             alt="Portrait of Sérgio C. Castelani Jr.">
       </div>
     </section>
 
-    <section class="p-3 mt-5">
-      <h2 class="border-start mb-5 ps-3 border-5 border-primary fw-bold">Strongest Hard skills</h2>
-      <div class="row p-3 g-3">
+    <section id="about" class="page-section" aria-labelledby="about-heading">
+      <h2 id="about-heading" class="border-start border-5 border-primary ps-3 fw-bold mb-5">About</h2>
 
-        <div class="col-12 col-md-4">
-          <div class="card h-100">
-            <img src="./images/desktop.jpg" class="card-img-top" alt="desktop development">
-            <div class="card-body">
-              <h5 class="card-title">Desktop Development</h5>
-              
-              <ul>
-                <li>C++</li>
-                <li>Boost</li>
-                <li>Visual Studio</li>
-                <li>OpenGL</li>
-                <li>Python</li>
-              </ul>
-            </div>
+      <p class="about-summary lead mb-5">
+        Senior Software Engineer with 27 years of experience building software across real estate, finance, CAD, fashion technology, telecommunications and medical imaging. Today I focus on full-stack development with C#/.NET, TypeScript and React, plus AI agents. Behind that is a deep background in C++, computer graphics and performance optimization. I have worked in startups, scale-ups and international companies, and I like solving hard technical problems in ways that create measurable business value.
+      </p>
+
+      <ul class="row row-cols-2 row-cols-lg-4 g-3 list-unstyled mb-0" aria-label="Key numbers">
+        <li class="col">
+          <div class="stat-tile d-flex flex-column align-items-center gap-1 h-100 p-3 text-center">
+            <i class="bi bi-calendar-check stat-tile-icon" aria-hidden="true"></i>
+            <span class="stat-tile-number fs-1 fw-bold lh-1">27</span>
+            <span class="small text-body-secondary">years experience</span>
           </div>
-        </div>
-
-        <div class="col-12 col-md-4">
-          <div class="card h-100">
-            <img src="./images/web-dev.jpeg" class="card-img-top" alt="web development">
-            <div class="card-body">
-              <h5 class="card-title">Web Development</h5>
-              
-              <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Javascript</li>
-                <li>React</li>
-                <li>Bootstrap</li>
-                <li>Node.JS</li>
-              </ul>
-            </div>
+        </li>
+        <li class="col">
+          <div class="stat-tile d-flex flex-column align-items-center gap-1 h-100 p-3 text-center">
+            <i class="bi bi-building stat-tile-icon" aria-hidden="true"></i>
+            <span class="stat-tile-number fs-1 fw-bold lh-1">6</span>
+            <span class="small text-body-secondary">industries</span>
           </div>
-        </div>
-
-        <div class="col-12 col-md-4">
-          <div class="card h-100">
-            <img src="./images/so.jpg" class="card-img-top" alt="Operating Systems">
-            <div class="card-body">
-              <h5 class="card-title">Operating Systems</h5>
-              
-              <ul>
-                <li>Windows</li>
-                <li>Linux</li>
-                <li>MacOS</li>
-              </ul>
-            </div>
+        </li>
+        <li class="col">
+          <div class="stat-tile d-flex flex-column align-items-center gap-1 h-100 p-3 text-center">
+            <i class="bi bi-briefcase stat-tile-icon" aria-hidden="true"></i>
+            <span class="stat-tile-number fs-1 fw-bold lh-1">6</span>
+            <span class="small text-body-secondary">companies</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="p-3 mt-5">
-      <h2 class="border-start mb-5 ps-3 border-5 border-primary fw-bold">Objectives</h2>
-
-      <ul id="objectives-list" class="fs-5">
-        <li>
-            I'm investing all my time and effort to <strong>become a senior full stack developer capable of leading teams</strong>.
         </li>
-        <li>
-            My position in life is to <strong>be useful at any place by doing my best</strong> with my chosen activities.
-        </li>
-        <li>
-            No matter where I am (as an employee or a friend), I will always try to leave the mark <strong>"here came someone who made a difference!"</strong>.
-        </li>
-        <li>
-            <strong>Always keeping the balance</strong> between a job well done and a harmonic life.
+        <li class="col">
+          <div class="stat-tile d-flex flex-column align-items-center gap-1 h-100 p-3 text-center">
+            <i class="bi bi-cpu stat-tile-icon" aria-hidden="true"></i>
+            <span class="stat-tile-number fs-1 fw-bold lh-1">13+</span>
+            <span class="small text-body-secondary">yrs C++</span>
+          </div>
         </li>
       </ul>
     </section>
 
-    <section class="p-3 mt-5">
-      <h2 class="border-start mb-5 ps-3 border-5 border-primary fw-bold">Showcase</h2>
+    <section id="skills" class="page-section section-alt" aria-labelledby="skills-heading">
+      <h2 id="skills-heading" class="border-start border-5 border-primary ps-3 fw-bold mb-5">Expertise</h2>
 
-      <div class="container">
+      <div class="row g-4 justify-content-center">
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 expertise-card">
+            <div class="card-body d-flex flex-column">
+              <i class="bi bi-window-stack expertise-card-icon mb-3" aria-hidden="true"></i>
+              <h3 class="h5 card-title fw-bold">Full-Stack Web</h3>
+              <p class="expertise-card-years small fw-semibold mb-2">5+ years</p>
+              <p class="card-text">End-to-end SPAs and APIs for enterprise analytics and real-estate platforms, from database to UI.</p>
+              <ul class="list-unstyled d-flex flex-wrap gap-2 mt-auto mb-0">
+                <li><span class="badge skill-chip">C#</span></li>
+                <li><span class="badge skill-chip">ASP.NET</span></li>
+                <li><span class="badge skill-chip">TypeScript</span></li>
+                <li><span class="badge skill-chip">React</span></li>
+                <li><span class="badge skill-chip">Redux</span></li>
+                <li><span class="badge skill-chip">Node.js</span></li>
+                <li><span class="badge skill-chip">Express</span></li>
+                <li><span class="badge skill-chip">SQL Server</span></li>
+                <li><span class="badge skill-chip">PostgreSQL</span></li>
+                <li><span class="badge skill-chip">Azure</span></li>
+                <li><span class="badge skill-chip">Docker</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 expertise-card">
+            <div class="card-body d-flex flex-column">
+              <i class="bi bi-robot expertise-card-icon mb-3" aria-hidden="true"></i>
+              <h3 class="h5 card-title fw-bold">AI Agents</h3>
+              <p class="expertise-card-years small fw-semibold mb-2"><span aria-hidden="true">~</span><span class="visually-hidden">About </span>2 years</p>
+              <p class="card-text">Built T6-GPT, an AI assistant that operates a BI platform and turns data into insights.</p>
+              <ul class="list-unstyled d-flex flex-wrap gap-2 mt-auto mb-0">
+                <li><span class="badge skill-chip">Microsoft Agent Framework</span></li>
+                <li><span class="badge skill-chip">LLM integration</span></li>
+                <li><span class="badge skill-chip">Python</span></li>
+                <li><span class="badge skill-chip">GitHub Copilot / Codex / Claude</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 expertise-card">
+            <div class="card-body d-flex flex-column">
+              <i class="bi bi-cpu expertise-card-icon mb-3" aria-hidden="true"></i>
+              <h3 class="h5 card-title fw-bold">C++ &amp; Performance</h3>
+              <p class="expertise-card-years small fw-semibold mb-2">13+ years</p>
+              <p class="card-text">High-performance native systems for CAD, fashion 3D and medical imaging, with a focus on removing bottlenecks.</p>
+              <ul class="list-unstyled d-flex flex-wrap gap-2 mt-auto mb-0">
+                <li><span class="badge skill-chip">C/C++</span></li>
+                <li><span class="badge skill-chip">Boost</span></li>
+                <li><span class="badge skill-chip">Qt</span></li>
+                <li><span class="badge skill-chip">Multithreading</span></li>
+                <li><span class="badge skill-chip">Visual Studio</span></li>
+                <li><span class="badge skill-chip">Profiling</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 expertise-card">
+            <div class="card-body d-flex flex-column">
+              <i class="bi bi-badge-3d expertise-card-icon mb-3" aria-hidden="true"></i>
+              <h3 class="h5 card-title fw-bold">Computer Graphics &amp; GPU</h3>
+              <p class="expertise-card-years small fw-semibold mb-2">12+ years</p>
+              <p class="card-text">Graphics engines, real-time cloth simulation and 3D medical rendering.</p>
+              <ul class="list-unstyled d-flex flex-wrap gap-2 mt-auto mb-0">
+                <li><span class="badge skill-chip">OpenGL</span></li>
+                <li><span class="badge skill-chip">CUDA</span></li>
+                <li><span class="badge skill-chip">WebGL</span></li>
+                <li><span class="badge skill-chip">Three.js</span></li>
+                <li><span class="badge skill-chip">Unity</span></li>
+                <li><span class="badge skill-chip">Real-time simulation</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 expertise-card">
+            <div class="card-body d-flex flex-column">
+              <i class="bi bi-heart-pulse expertise-card-icon mb-3" aria-hidden="true"></i>
+              <h3 class="h5 card-title fw-bold">Medical Imaging</h3>
+              <p class="expertise-card-years small fw-semibold mb-2">7 years</p>
+              <p class="card-text">Radiology thin-client systems and 3D visualization at Pixeon.</p>
+              <ul class="list-unstyled d-flex flex-wrap gap-2 mt-auto mb-0">
+                <li><span class="badge skill-chip">DICOM</span></li>
+                <li><span class="badge skill-chip">3D rendering</span></li>
+                <li><span class="badge skill-chip">Thin-client architecture</span></li>
+                <li><span class="badge skill-chip">Pipeline processing</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card mt-5">
+        <div class="card-body p-4">
+          <h3 id="toolbox-heading" class="h5 fw-bold mb-4">Full toolbox</h3>
+
+          <div class="toolbox-group row g-2">
+            <div class="col-12 col-md-3">
+              <h4 class="h6 text-uppercase text-body-secondary fw-semibold mb-0">Languages</h4>
+            </div>
+            <div class="col-12 col-md-9">
+              <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
+                <li><span class="badge skill-chip">C#</span></li>
+                <li><span class="badge skill-chip">JavaScript / TypeScript</span></li>
+                <li><span class="badge skill-chip">PHP</span></li>
+                <li><span class="badge skill-chip">Python</span></li>
+                <li><span class="badge skill-chip">HTML / CSS</span></li>
+                <li><span class="badge skill-chip">C / C++</span></li>
+                <li><span class="badge skill-chip">Java</span></li>
+                <li><span class="badge skill-chip">Assembly</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="toolbox-group row g-2">
+            <div class="col-12 col-md-3">
+              <h4 class="h6 text-uppercase text-body-secondary fw-semibold mb-0">Frameworks &amp; Libraries</h4>
+            </div>
+            <div class="col-12 col-md-9">
+              <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
+                <li><span class="badge skill-chip">ASP.NET</span></li>
+                <li><span class="badge skill-chip">Microsoft Agent Framework</span></li>
+                <li><span class="badge skill-chip">React</span></li>
+                <li><span class="badge skill-chip">Redux</span></li>
+                <li><span class="badge skill-chip">Qt</span></li>
+                <li><span class="badge skill-chip">Boost</span></li>
+                <li><span class="badge skill-chip">Bootstrap</span></li>
+                <li><span class="badge skill-chip">Express</span></li>
+                <li><span class="badge skill-chip">Node.js</span></li>
+                <li><span class="badge skill-chip">Unity</span></li>
+                <li><span class="badge skill-chip">Three.js</span></li>
+                <li><span class="badge skill-chip">WebGL</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="toolbox-group row g-2">
+            <div class="col-12 col-md-3">
+              <h4 class="h6 text-uppercase text-body-secondary fw-semibold mb-0">Databases</h4>
+            </div>
+            <div class="col-12 col-md-9">
+              <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
+                <li><span class="badge skill-chip">PostgreSQL</span></li>
+                <li><span class="badge skill-chip">SQL Server</span></li>
+                <li><span class="badge skill-chip">MySQL</span></li>
+                <li><span class="badge skill-chip">NoSQL</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="toolbox-group row g-2">
+            <div class="col-12 col-md-3">
+              <h4 class="h6 text-uppercase text-body-secondary fw-semibold mb-0">Tools &amp; Platforms</h4>
+            </div>
+            <div class="col-12 col-md-9">
+              <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
+                <li><span class="badge skill-chip">Visual Studio</span></li>
+                <li><span class="badge skill-chip">VS Code</span></li>
+                <li><span class="badge skill-chip">Git</span></li>
+                <li><span class="badge skill-chip">Docker</span></li>
+                <li><span class="badge skill-chip">Azure</span></li>
+                <li><span class="badge skill-chip">GitHub Copilot CLI</span></li>
+                <li><span class="badge skill-chip">Codex</span></li>
+                <li><span class="badge skill-chip">Claude</span></li>
+                <li><span class="badge skill-chip">AWS</span></li>
+                <li><span class="badge skill-chip">Jenkins</span></li>
+                <li><span class="badge skill-chip">Jira</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="toolbox-group row g-2">
+            <div class="col-12 col-md-3">
+              <h4 class="h6 text-uppercase text-body-secondary fw-semibold mb-0">Specialized</h4>
+            </div>
+            <div class="col-12 col-md-9">
+              <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
+                <li><span class="badge skill-chip">Fullstack web development</span></li>
+                <li><span class="badge skill-chip">Computer Graphics</span></li>
+                <li><span class="badge skill-chip">OpenGL</span></li>
+                <li><span class="badge skill-chip">CUDA</span></li>
+                <li><span class="badge skill-chip">Multithreading</span></li>
+                <li><span class="badge skill-chip">DICOM / Medical Imaging</span></li>
+                <li><span class="badge skill-chip">Real-Time Systems</span></li>
+                <li><span class="badge skill-chip">TCP/IP</span></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="value" class="page-section" aria-labelledby="value-heading">
+      <h2 id="value-heading" class="border-start border-5 border-primary ps-3 fw-bold mb-5">What I bring</h2>
+      <ul class="row row-cols-1 row-cols-md-2 g-4 list-unstyled mb-0">
+        <li class="col value-item">
+          <i class="bi bi-diagram-3 value-item-icon" aria-hidden="true"></i>
+          <div>
+            <h3 class="h5 fw-bold mb-1">End-to-end ownership</h3>
+            <p class="mb-0">I take features from database schema to polished UI and ship them.</p>
+          </div>
+        </li>
+        <li class="col value-item">
+          <i class="bi bi-speedometer2 value-item-icon" aria-hidden="true"></i>
+          <div>
+            <h3 class="h5 fw-bold mb-1">Performance mindset</h3>
+            <p class="mb-0">Years of C++ and GPU work taught me to measure, profile and remove bottlenecks.</p>
+          </div>
+        </li>
+        <li class="col value-item">
+          <i class="bi bi-lightbulb value-item-icon" aria-hidden="true"></i>
+          <div>
+            <h3 class="h5 fw-bold mb-1">Hard problems, practical solutions</h3>
+            <p class="mb-0">3D engines, real-time simulation, medical imaging, AI agents: I turn complex tech into working products.</p>
+          </div>
+        </li>
+        <li class="col value-item">
+          <i class="bi bi-rocket-takeoff value-item-icon" aria-hidden="true"></i>
+          <div>
+            <h3 class="h5 fw-bold mb-1">Startup to enterprise</h3>
+            <p class="mb-0">I have been a CTO who built a platform from scratch and an engineer in small international teams.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="experience" class="page-section section-alt" aria-labelledby="experience-heading">
+      <h2 id="experience-heading" class="border-start border-5 border-primary ps-3 fw-bold mb-5">Experience</h2>
+      <ol class="timeline list-unstyled mb-0" role="list">
+        <li class="timeline-item">
+          <h3 class="h5 fw-bold mb-1">Senior Full-Stack Web Developer at <span class="timeline-company">Tech6</span></h3>
+          <span class="badge timeline-date">Oct 2023 – Oct 2026</span>
+          <p class="text-body-secondary mb-2">Software company: business analytics and enterprise web platforms</p>
+          <ul class="mb-3">
+            <li><span class="fw-semibold">Sysphera</span>: C#/TypeScript/MSSQL SPA for data storage and OLAP-cube analysis.</li>
+            <li><span class="fw-semibold">Drapo</span>: TypeScript framework for frontend development.</li>
+            <li><span class="fw-semibold">T6-GPT</span>: AI assistant to operate Sysphera and surface data insights (Microsoft Agent Framework).</li>
+            <li>Real estate management platform for a major U.S. client.</li>
+          </ul>
+          <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0" role="list" aria-label="Technologies used at Tech6">
+            <li><span class="badge skill-chip">C#</span></li>
+            <li><span class="badge skill-chip">ASP.NET</span></li>
+            <li><span class="badge skill-chip">TypeScript</span></li>
+            <li><span class="badge skill-chip">React</span></li>
+            <li><span class="badge skill-chip">Redux</span></li>
+            <li><span class="badge skill-chip">PostgreSQL</span></li>
+            <li><span class="badge skill-chip">SQL Server</span></li>
+            <li><span class="badge skill-chip">Docker</span></li>
+            <li><span class="badge skill-chip">Azure</span></li>
+            <li><span class="badge skill-chip">Microsoft Agent Framework</span></li>
+          </ul>
+        </li>
+        <li class="timeline-item">
+          <h3 class="h5 fw-bold mb-1">Software Engineer at <span class="timeline-company">Graebert</span></h3>
+          <span class="badge timeline-date">Sep 2022 – Mar 2023</span>
+          <p class="text-body-secondary mb-2">Leading international CAD platform</p>
+          <ul class="mb-3">
+            <li>Contributed mainly to the graphics engine.</li>
+            <li>Removed performance bottlenecks.</li>
+            <li>Investigated and fixed defects.</li>
+          </ul>
+          <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0" role="list" aria-label="Technologies used at Graebert">
+            <li><span class="badge skill-chip">C++</span></li>
+            <li><span class="badge skill-chip">OpenGL</span></li>
+            <li><span class="badge skill-chip">Qt</span></li>
+            <li><span class="badge skill-chip">Multithreading</span></li>
+          </ul>
+        </li>
+        <li class="timeline-item">
+          <h3 class="h5 fw-bold mb-1">Senior Software Engineer at <span class="timeline-company">Audaces</span></h3>
+          <span class="badge timeline-date">May 2017 – Sep 2022</span>
+          <p class="text-body-secondary mb-2">Multinational fashion-technology company (software and hardware)</p>
+          <ul class="mb-3">
+            <li>Contributed to Audaces 4D (3D fashion design).</li>
+            <li>Built 3D modeling and real-time cloth-simulation tools.</li>
+            <li>Led prototypes: VR try-on mirror (Unity + body tracking), WebGL garment viewer, Industry 4.0 integrations with SENAI/SP.</li>
+          </ul>
+          <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0" role="list" aria-label="Technologies used at Audaces">
+            <li><span class="badge skill-chip">C++</span></li>
+            <li><span class="badge skill-chip">OpenGL</span></li>
+            <li><span class="badge skill-chip">Qt</span></li>
+            <li><span class="badge skill-chip">Computer Graphics</span></li>
+            <li><span class="badge skill-chip">Multithreading</span></li>
+            <li><span class="badge skill-chip">Jenkins</span></li>
+          </ul>
+        </li>
+        <li class="timeline-item">
+          <h3 class="h5 fw-bold mb-1">CTO / Lead Developer at <span class="timeline-company">ITM Apps</span></h3>
+          <span class="badge timeline-date">Sep 2014 – Aug 2016</span>
+          <p class="text-body-secondary mb-2">Startup: condominium management</p>
+          <ul class="mb-3">
+            <li>Designed and built APControle from scratch.</li>
+            <li>Cloud-based condo management platform.</li>
+            <li>Full AWS integration.</li>
+          </ul>
+          <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0" role="list" aria-label="Technologies used at ITM Apps">
+            <li><span class="badge skill-chip">PHP</span></li>
+            <li><span class="badge skill-chip">PostgreSQL</span></li>
+            <li><span class="badge skill-chip">HTML</span></li>
+            <li><span class="badge skill-chip">CSS</span></li>
+            <li><span class="badge skill-chip">AWS</span></li>
+          </ul>
+        </li>
+        <li class="timeline-item">
+          <h3 class="h5 fw-bold mb-1">Software Engineer at <span class="timeline-company">AGM</span></h3>
+          <span class="badge timeline-date">Feb 2012 – Jan 2013</span>
+          <p class="text-body-secondary mb-2">Telecommunications software</p>
+          <ul class="mb-3">
+            <li>Tools integrated with Cisco VoIP solutions.</li>
+            <li>Improved development processes.</li>
+            <li>Standardized tools and environments.</li>
+          </ul>
+          <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0" role="list" aria-label="Technologies used at AGM">
+            <li><span class="badge skill-chip">C++</span></li>
+            <li><span class="badge skill-chip">SIP</span></li>
+            <li><span class="badge skill-chip">VoIP</span></li>
+            <li><span class="badge skill-chip">TCP/IP</span></li>
+          </ul>
+        </li>
+        <li class="timeline-item">
+          <h3 class="h5 fw-bold mb-1">Software Engineer at <span class="timeline-company">Pixeon</span></h3>
+          <span class="badge timeline-date">Feb 2005 – Jan 2012</span>
+          <p class="text-body-secondary mb-2">Medical imaging software</p>
+          <ul class="mb-3">
+            <li>High-performance thin-client radiology systems, with lower maintenance costs and more flexible reporting.</li>
+            <li>Scalable pipeline-processing frameworks.</li>
+            <li>Advanced 3D rendering for medical visualization.</li>
+            <li>1 year of iOS development.</li>
+          </ul>
+          <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0" role="list" aria-label="Technologies used at Pixeon">
+            <li><span class="badge skill-chip">C++</span></li>
+            <li><span class="badge skill-chip">Python</span></li>
+            <li><span class="badge skill-chip">Java</span></li>
+            <li><span class="badge skill-chip">Assembly</span></li>
+            <li><span class="badge skill-chip">OpenGL</span></li>
+            <li><span class="badge skill-chip">CUDA</span></li>
+            <li><span class="badge skill-chip">DICOM</span></li>
+            <li><span class="badge skill-chip">Multithreading</span></li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="projects" class="page-section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="border-start border-5 border-primary ps-3 fw-bold mb-5">Featured Work</h2>
+      <div id="projects-professional">
+        <h3 id="projects-professional-heading" class="h4 fw-bold mb-4">Professional highlights</h3>
+
+        <div class="row row-cols-1 row-cols-lg-2 g-4 mb-5">
+
+          <div class="col">
+            <article class="card h-100 highlight-card" aria-labelledby="highlight-sysphera-title">
+              <div class="card-body p-4">
+                <i class="bi bi-bar-chart-line highlight-card-icon d-block mb-3" aria-hidden="true"></i>
+                <h4 id="highlight-sysphera-title" class="h5 card-title fw-bold mb-1">Sysphera</h4>
+                <p class="text-body-secondary mb-3">Tech6</p>
+                <p class="card-text">An enterprise SPA for data storage and analysis with OLAP cubes.</p>
+                <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0" role="list" aria-label="Technologies used in Sysphera">
+                  <li><span class="badge skill-chip">C#</span></li>
+                  <li><span class="badge skill-chip">ASP.NET</span></li>
+                  <li><span class="badge skill-chip">TypeScript</span></li>
+                  <li><span class="badge skill-chip">SQL Server</span></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="card h-100 highlight-card" aria-labelledby="highlight-audaces-title">
+              <div class="card-body p-4">
+                <i class="bi bi-badge-vr highlight-card-icon d-block mb-3" aria-hidden="true"></i>
+                <h4 id="highlight-audaces-title" class="h5 card-title fw-bold mb-1">Audaces 4D &amp; VR Try-on Mirror</h4>
+                <p class="text-body-secondary mb-3">Audaces</p>
+                <p class="card-text">A 3D fashion design platform with real-time cloth simulation, plus a VR mirror prototype built with Unity and body-tracking sensors.</p>
+                <p class="small mb-3">
+                  <i class="bi bi-youtube" aria-hidden="true"></i>
+                  Audaces 4D videos:
+                  <a href="https://www.youtube.com/watch?v=I43b6T5Whh0" target="_blank" rel="noopener" aria-label="Audaces 4D video 1 (YouTube)">video 1</a>,
+                  <a href="https://www.youtube.com/watch?v=nkV10HX66fs" target="_blank" rel="noopener" aria-label="Audaces 4D video 2 (YouTube)">video 2</a>
+                  <br>
+                  <i class="bi bi-youtube" aria-hidden="true"></i>
+                  VR Try-on Mirror:
+                  <a href="https://www.youtube.com/watch?v=7TTifdrZ8TU" target="_blank" rel="noopener" aria-label="VR Try-on Mirror video (YouTube)">video</a>
+                </p>
+                <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0" role="list" aria-label="Technologies used in Audaces 4D &amp; VR Try-on Mirror">
+                  <li><span class="badge skill-chip">C++</span></li>
+                  <li><span class="badge skill-chip">OpenGL</span></li>
+                  <li><span class="badge skill-chip">Qt</span></li>
+                  <li><span class="badge skill-chip">Unity</span></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+      <div id="projects-personal">
+        <h3 class="h4 fw-bold mb-4">Personal projects</h3>
+
         <div class="row g-3">
-
           <div class="col-12 col-lg-6">
             <div class="card h-100">
               <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
+                <div
+                  class="col-md-4 project-card-img"
+                  role="link" tabindex="0" aria-label="GrowTweet live demo"
                   style="background-image: url(./images/projects/growtweet.png);"
                   onclick="window.open('https://growtweet.onrender.com/','_blank')"
                 >
-                  <div class="project-img-overlay">
+                  <div class="project-img-overlay" aria-hidden="true">
                     <div class="btn btn-dark">
                       <i class="bi bi-eye-fill"></i> View
                     </div>
@@ -149,15 +583,13 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title">GrowTweet</h5>
+                    <h4 class="card-title h5">GrowTweet</h4>
                     <p class="card-text">
-                      X(Twitter)-like demo. <br/>
-                      Front-end <a href="https://github.com/sergiocastelani/growtweet-front" target="_blank">Source Code</a>. <br/>
-                      API <a href="https://github.com/sergiocastelani/growtweet-back" target="_blank">Source Code</a>. <br/>
+                      X(Twitter)-like demo.<br/>
+                      Front-end <a href="https://github.com/sergiocastelani/growtweet-front" target="_blank" rel="noopener">Source Code</a>.<br/>
+                      API <a href="https://github.com/sergiocastelani/growtweet-back" target="_blank" rel="noopener">Source Code</a>.
                     </p>
-                    <p class="card-text">
-                      <small class="text-body-secondary">React | TypeScript | NodeJS API | PostgreSQL</small>
-                    </p>
+                    <p class="card-text"><small class="text-body-secondary">React | TypeScript | NodeJS API | PostgreSQL</small></p>
                   </div>
                 </div>
               </div>
@@ -167,112 +599,13 @@
           <div class="col-12 col-lg-6">
             <div class="card h-100">
               <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
-                  style="background-image: url(./images/projects/hashmarks.png);"
-                  onclick="window.open('https://hashmarks.castelani.dev.br/','_blank')"
-                >
-                  <div class="project-img-overlay">
-                    <div class="btn btn-dark">
-                      <i class="bi bi-eye-fill"></i> View
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">HashMarks</h5>
-                    <p class="card-text">Personal bookmark repository organized by hashtags and with cloud storage.</p>
-                    <p class="card-text"><small class="text-body-secondary">React | Firebase | Webworkers</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-lg-6">
-            <div class="card h-100">
-              <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
-                  style="background-image: url(./images/projects/spiderman.png);"
-                  onclick="window.open('https://sergiocastelani.github.io/spiderman-fanpage/','_blank')"
-                >
-                  <div class="project-img-overlay">
-                    <div class="btn btn-dark">
-                      <i class="bi bi-eye-fill"></i> View
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Spider-man Fanpage</h5>
-                    <p class="card-text">A fanpage showcase with 3D elements.</p>
-                    <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | Threejs</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-lg-6">
-            <div class="card h-100">
-              <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
-                  style="background-image: url(./images/projects/rickandmorty.png);"
-                  onclick="window.open('https://rickmorty.castelani.dev.br/','_blank')"
-                >
-                  <div class="project-img-overlay">
-                    <div class="btn btn-dark">
-                      <i class="bi bi-eye-fill"></i> View
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Rick & Morty API</h5>
-                    <p class="card-text">Front-end for the Rick & Morty API.</p>
-                    <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | API</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-12 col-lg-6">
-            <div class="card h-100">
-              <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
-                  style="background-image: url(./images/projects/growflix.png);"
-                  onclick="window.open('https://sergiocastelani.github.io/growflix/index.html','_blank')"
-                >
-                  <div class="project-img-overlay">
-                    <div class="btn btn-dark">
-                      <i class="bi bi-eye-fill"></i> View
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Growflix</h5>
-                    <p class="card-text">Conceptual streaming page</p>
-                    <p class="card-text"><small class="text-body-secondary">HTML | CSS | Boostrap | Javascript</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-12 col-lg-6">
-            <div class="card h-100">
-              <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
+                <div
+                  class="col-md-4 project-card-img"
+                  role="link" tabindex="0" aria-label="3D Viewer live demo"
                   style="background-image: url(./images/projects/vweb.png);"
                   onclick="window.open('https://vweb-castelani.netlify.app/','_blank')"
                 >
-                  <div class="project-img-overlay">
+                  <div class="project-img-overlay" aria-hidden="true">
                     <div class="btn btn-dark">
                       <i class="bi bi-eye-fill"></i> View
                     </div>
@@ -280,7 +613,7 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title">3D Viewer</h5>
+                    <h4 class="card-title h5">3D Viewer</h4>
                     <p class="card-text">A component to show 3D GLTF models</p>
                     <p class="card-text"><small class="text-body-secondary">HTML | CSS | Bootstrap | Javascript | Threejs</small></p>
                   </div>
@@ -288,46 +621,17 @@
               </div>
             </div>
           </div>
-          
+
           <div class="col-12 col-lg-6">
             <div class="card h-100">
               <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
-                  style="background-image: url(./images/projects/nikel.png);"
-                  onclick="window.open('https://castelani-nikel.netlify.app','_blank')"
-                >
-                  <div class="project-img-overlay">
-                    <div class="btn btn-dark">
-                      <i class="bi bi-eye-fill"></i> View
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Nikel</h5>
-                    <p class="card-text">
-                      Final project for the course
-                      <a href="https://plataforma.growdev.com.br/curso/codai" target="_blank">Codaí</a>
-                      from Growdev.<br/>
-                      Source code on <a href="https://github.com/sergiocastelani/growdev-nikel" target="_blank">GitHub</a>.
-                    </p>
-                    <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | Bootstrap</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-12 col-lg-6">
-            <div class="card h-100">
-              <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
+                <div
+                  class="col-md-4 project-card-img"
+                  role="link" tabindex="0" aria-label="Bat-Flappy live demo"
                   style="background-image: url(./images/projects/bat-flappy.png);"
                   onclick="window.open('https://bat-flappy.castelani.dev.br/','_blank')"
                 >
-                  <div class="project-img-overlay">
+                  <div class="project-img-overlay" aria-hidden="true">
                     <div class="btn btn-dark">
                       <i class="bi bi-eye-fill"></i> View
                     </div>
@@ -335,37 +639,157 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title">Bat-Flappy</h5>
+                    <h4 class="card-title h5">Bat-Flappy</h4>
                     <p class="card-text">
                       A full flapper game made with Unity.<br/>
-                      Source code on <a href="https://github.com/sergiocastelani/flapper-orig" target="_blank">GitHub</a>.
+                      Source code on <a href="https://github.com/sergiocastelani/flapper-orig" target="_blank" rel="noopener">GitHub</a>.
                     </p>
-                    <p class="card-text"><small class="text-body-secondary">Unity | C# </small></p>
+                    <p class="card-text"><small class="text-body-secondary">Unity | C#</small></p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
-          <div class="col-12 col-lg-6">
-            <div class="card h-100">
-              <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
-                  style="background-image: url(./images/projects/dom_challenge.png);"
-                  onclick="window.open('https://sergiocastelani.github.io/dom_game/','_blank')"
-                >
-                  <div class="project-img-overlay">
-                    <div class="btn btn-dark">
-                      <i class="bi bi-eye-fill"></i> View
+        </div>
+
+        <div class="text-center mt-4">
+          <button id="more-projects-toggle" class="btn" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#more-projects"
+                  aria-expanded="false" aria-controls="more-projects">Show more projects</button>
+        </div>
+
+        <div id="more-projects" class="collapse">
+          <div class="row g-3 pt-4">
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="row g-0 h-100">
+                  <div
+                    class="col-md-4 project-card-img"
+                    role="link" tabindex="0" aria-label="Spider-man Fanpage live demo"
+                    style="background-image: url(./images/projects/spiderman.png);"
+                    onclick="window.open('https://sergiocastelani.github.io/spiderman-fanpage/','_blank')"
+                  >
+                    <div class="project-img-overlay" aria-hidden="true">
+                      <div class="btn btn-dark">
+                        <i class="bi bi-eye-fill"></i> View
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h4 class="card-title h5">Spider-man Fanpage</h4>
+                      <p class="card-text">A fanpage showcase with 3D elements.</p>
+                      <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | Threejs</small></p>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">DOM Challenge</h5>
-                    <p class="card-text">A mini game for students to pactice DOM manipulation.</p>
-                    <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | Animation | Collision detection</small></p>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="row g-0 h-100">
+                  <div
+                    class="col-md-4 project-card-img"
+                    role="link" tabindex="0" aria-label="Rick &amp; Morty API live demo"
+                    style="background-image: url(./images/projects/rickandmorty.png);"
+                    onclick="window.open('https://rickmorty.castelani.dev.br/','_blank')"
+                  >
+                    <div class="project-img-overlay" aria-hidden="true">
+                      <div class="btn btn-dark">
+                        <i class="bi bi-eye-fill"></i> View
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h4 class="card-title h5">Rick &amp; Morty API</h4>
+                      <p class="card-text">Front-end for the Rick &amp; Morty API.</p>
+                      <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | API</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="row g-0 h-100">
+                  <div
+                    class="col-md-4 project-card-img"
+                    role="link" tabindex="0" aria-label="Growflix live demo"
+                    style="background-image: url(./images/projects/growflix.png);"
+                    onclick="window.open('https://sergiocastelani.github.io/growflix/index.html','_blank')"
+                  >
+                    <div class="project-img-overlay" aria-hidden="true">
+                      <div class="btn btn-dark">
+                        <i class="bi bi-eye-fill"></i> View
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h4 class="card-title h5">Growflix</h4>
+                      <p class="card-text">Conceptual streaming page</p>
+                      <p class="card-text"><small class="text-body-secondary">HTML | CSS | Bootstrap | Javascript</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="row g-0 h-100">
+                  <div
+                    class="col-md-4 project-card-img"
+                    role="link" tabindex="0" aria-label="Nikel live demo"
+                    style="background-image: url(./images/projects/nikel.png);"
+                    onclick="window.open('https://castelani-nikel.netlify.app','_blank')"
+                  >
+                    <div class="project-img-overlay" aria-hidden="true">
+                      <div class="btn btn-dark">
+                        <i class="bi bi-eye-fill"></i> View
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h4 class="card-title h5">Nikel</h4>
+                      <p class="card-text">
+                        Final project for the course
+                        <a href="https://plataforma.growdev.com.br/curso/codai" target="_blank" rel="noopener">Codaí</a>
+                        from Growdev.<br/>
+                        Source code on <a href="https://github.com/sergiocastelani/growdev-nikel" target="_blank" rel="noopener">GitHub</a>.
+                      </p>
+                      <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | Bootstrap</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="row g-0 h-100">
+                  <div
+                    class="col-md-4 project-card-img"
+                    role="link" tabindex="0" aria-label="DOM Challenge live demo"
+                    style="background-image: url(./images/projects/dom_challenge.png);"
+                    onclick="window.open('https://sergiocastelani.github.io/dom_game/','_blank')"
+                  >
+                    <div class="project-img-overlay" aria-hidden="true">
+                      <div class="btn btn-dark">
+                        <i class="bi bi-eye-fill"></i> View
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h4 class="card-title h5">DOM Challenge</h4>
+                      <p class="card-text">A mini game for students to practice DOM manipulation.</p>
+                      <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | Animation | Collision detection</small></p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -374,9 +798,88 @@
         </div>
       </div>
     </section>
+    <script>
+      // Personal projects: Enter opens a project screenshot's demo (click is handled by its inline onclick),
+      // and the "More projects" toggle label follows the collapse state.
+      (() => {
+        const personalProjects = document.getElementById('projects-personal');
+        const moreProjects = document.getElementById('more-projects');
+        const moreProjectsToggle = document.getElementById('more-projects-toggle');
+        const SHOW_MORE_LABEL = 'Show more projects';
+        const SHOW_FEWER_LABEL = 'Show fewer projects';
 
-    <footer class="mt-5 text-center">
-      <small class="blockquote-footer">Sérgio C Castelani Jr (2023)</small>
+        personalProjects.addEventListener('keydown', (event) => {
+          if (event.key !== 'Enter' || event.repeat) return;
+          if (!event.target.matches('.project-card-img[role="link"]')) return;
+          event.preventDefault();
+          event.target.click();   // reuses the inline onclick, so the demo URL has one source
+        });
+
+        moreProjects.addEventListener('shown.bs.collapse', () => {
+          moreProjectsToggle.textContent = SHOW_FEWER_LABEL;
+        });
+        moreProjects.addEventListener('hidden.bs.collapse', () => {
+          moreProjectsToggle.textContent = SHOW_MORE_LABEL;
+        });
+      })();
+    </script>
+
+    <section id="education" class="page-section section-alt" aria-labelledby="education-heading">
+      <h2 id="education-heading" class="border-start border-5 border-primary ps-3 fw-bold mb-5">Education &amp; Languages</h2>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <h3 class="h4 fw-bold mb-3">
+            <i class="bi bi-mortarboard education-icon me-2" aria-hidden="true"></i>Education
+          </h3>
+          <ul class="list-unstyled d-flex flex-column gap-3 mb-0" role="list">
+            <li>
+              <span class="d-block fw-semibold">B.Sc. in Computer Science</span>
+              <span class="text-body-secondary">UFSC, 2003</span>
+            </li>
+            <li>
+              <span class="d-block fw-semibold">Full-Stack Web Development</span>
+              <span class="text-body-secondary">Growdev, 2023–2024</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3 class="h4 fw-bold mb-3">
+            <i class="bi bi-translate education-icon me-2" aria-hidden="true"></i>Languages
+          </h3>
+          <ul class="list-unstyled d-flex flex-column gap-3 mb-0" role="list">
+            <li><span class="fw-semibold">Portuguese:</span> Native / C2</li>
+            <li><span class="fw-semibold">English:</span> Upper Intermediate / B2</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-5 py-4 text-center">
+      <ul class="list-unstyled d-flex justify-content-center gap-2 mb-2">
+        <li>
+          <a class="footer-social-link" href="https://www.linkedin.com/in/sergiocastelani/"
+             target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="bi bi-linkedin" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a class="footer-social-link" href="https://github.com/sergiocastelani"
+             target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="bi bi-github" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a class="footer-social-link" href="mailto:sergio.castelani@gmail.com" aria-label="Email">
+            <i class="bi bi-envelope" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+      <p class="small text-body-secondary mb-0">
+        &copy; <span id="footer-year">2026</span> Sérgio C. Castelani Jr.
+      </p>
+      <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+      </script>
     </footer>
   </main>
   
