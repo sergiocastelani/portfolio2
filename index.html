@@ -554,28 +554,20 @@
 
         </div>
       </div>
-      <div id="projects-personal"></div>
-    </section>
+      <div id="projects-personal">
+        <h3 class="h4 fw-bold mb-4">Personal projects</h3>
 
-    <section id="education" class="page-section section-alt" aria-labelledby="education-heading">
-      <h2 id="education-heading" class="border-start border-5 border-primary ps-3 fw-bold mb-5">Education &amp; Languages</h2>
-    </section>
-
-    <section class="p-3 mt-5">
-      <h2 class="border-start mb-5 ps-3 border-5 border-primary fw-bold">Showcase</h2>
-
-      <div class="container">
         <div class="row g-3">
-
           <div class="col-12 col-lg-6">
             <div class="card h-100">
               <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
+                <div
+                  class="col-md-4 project-card-img"
+                  role="link" tabindex="0" aria-label="GrowTweet live demo"
                   style="background-image: url(./images/projects/growtweet.png);"
                   onclick="window.open('https://growtweet.onrender.com/','_blank')"
                 >
-                  <div class="project-img-overlay">
+                  <div class="project-img-overlay" aria-hidden="true">
                     <div class="btn btn-dark">
                       <i class="bi bi-eye-fill"></i> View
                     </div>
@@ -583,15 +575,13 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title">GrowTweet</h5>
+                    <h4 class="card-title h5">GrowTweet</h4>
                     <p class="card-text">
-                      X(Twitter)-like demo. <br/>
-                      Front-end <a href="https://github.com/sergiocastelani/growtweet-front" target="_blank">Source Code</a>. <br/>
-                      API <a href="https://github.com/sergiocastelani/growtweet-back" target="_blank">Source Code</a>. <br/>
+                      X(Twitter)-like demo.<br/>
+                      Front-end <a href="https://github.com/sergiocastelani/growtweet-front" target="_blank" rel="noopener">Source Code</a>.<br/>
+                      API <a href="https://github.com/sergiocastelani/growtweet-back" target="_blank" rel="noopener">Source Code</a>.
                     </p>
-                    <p class="card-text">
-                      <small class="text-body-secondary">React | TypeScript | NodeJS API | PostgreSQL</small>
-                    </p>
+                    <p class="card-text"><small class="text-body-secondary">React | TypeScript | NodeJS API | PostgreSQL</small></p>
                   </div>
                 </div>
               </div>
@@ -601,112 +591,13 @@
           <div class="col-12 col-lg-6">
             <div class="card h-100">
               <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
-                  style="background-image: url(./images/projects/hashmarks.png);"
-                  onclick="window.open('https://hashmarks.castelani.dev.br/','_blank')"
-                >
-                  <div class="project-img-overlay">
-                    <div class="btn btn-dark">
-                      <i class="bi bi-eye-fill"></i> View
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">HashMarks</h5>
-                    <p class="card-text">Personal bookmark repository organized by hashtags and with cloud storage.</p>
-                    <p class="card-text"><small class="text-body-secondary">React | Firebase | Webworkers</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-lg-6">
-            <div class="card h-100">
-              <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
-                  style="background-image: url(./images/projects/spiderman.png);"
-                  onclick="window.open('https://sergiocastelani.github.io/spiderman-fanpage/','_blank')"
-                >
-                  <div class="project-img-overlay">
-                    <div class="btn btn-dark">
-                      <i class="bi bi-eye-fill"></i> View
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Spider-man Fanpage</h5>
-                    <p class="card-text">A fanpage showcase with 3D elements.</p>
-                    <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | Threejs</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-lg-6">
-            <div class="card h-100">
-              <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
-                  style="background-image: url(./images/projects/rickandmorty.png);"
-                  onclick="window.open('https://rickmorty.castelani.dev.br/','_blank')"
-                >
-                  <div class="project-img-overlay">
-                    <div class="btn btn-dark">
-                      <i class="bi bi-eye-fill"></i> View
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Rick & Morty API</h5>
-                    <p class="card-text">Front-end for the Rick & Morty API.</p>
-                    <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | API</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-12 col-lg-6">
-            <div class="card h-100">
-              <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
-                  style="background-image: url(./images/projects/growflix.png);"
-                  onclick="window.open('https://sergiocastelani.github.io/growflix/index.html','_blank')"
-                >
-                  <div class="project-img-overlay">
-                    <div class="btn btn-dark">
-                      <i class="bi bi-eye-fill"></i> View
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Growflix</h5>
-                    <p class="card-text">Conceptual streaming page</p>
-                    <p class="card-text"><small class="text-body-secondary">HTML | CSS | Boostrap | Javascript</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-12 col-lg-6">
-            <div class="card h-100">
-              <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
+                <div
+                  class="col-md-4 project-card-img"
+                  role="link" tabindex="0" aria-label="3D Viewer live demo"
                   style="background-image: url(./images/projects/vweb.png);"
                   onclick="window.open('https://vweb-castelani.netlify.app/','_blank')"
                 >
-                  <div class="project-img-overlay">
+                  <div class="project-img-overlay" aria-hidden="true">
                     <div class="btn btn-dark">
                       <i class="bi bi-eye-fill"></i> View
                     </div>
@@ -714,7 +605,7 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title">3D Viewer</h5>
+                    <h4 class="card-title h5">3D Viewer</h4>
                     <p class="card-text">A component to show 3D GLTF models</p>
                     <p class="card-text"><small class="text-body-secondary">HTML | CSS | Bootstrap | Javascript | Threejs</small></p>
                   </div>
@@ -722,46 +613,17 @@
               </div>
             </div>
           </div>
-          
+
           <div class="col-12 col-lg-6">
             <div class="card h-100">
               <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
-                  style="background-image: url(./images/projects/nikel.png);"
-                  onclick="window.open('https://castelani-nikel.netlify.app','_blank')"
-                >
-                  <div class="project-img-overlay">
-                    <div class="btn btn-dark">
-                      <i class="bi bi-eye-fill"></i> View
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Nikel</h5>
-                    <p class="card-text">
-                      Final project for the course
-                      <a href="https://plataforma.growdev.com.br/curso/codai" target="_blank">Codaí</a>
-                      from Growdev.<br/>
-                      Source code on <a href="https://github.com/sergiocastelani/growdev-nikel" target="_blank">GitHub</a>.
-                    </p>
-                    <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | Bootstrap</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-12 col-lg-6">
-            <div class="card h-100">
-              <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
+                <div
+                  class="col-md-4 project-card-img"
+                  role="link" tabindex="0" aria-label="Bat-Flappy live demo"
                   style="background-image: url(./images/projects/bat-flappy.png);"
                   onclick="window.open('https://bat-flappy.castelani.dev.br/','_blank')"
                 >
-                  <div class="project-img-overlay">
+                  <div class="project-img-overlay" aria-hidden="true">
                     <div class="btn btn-dark">
                       <i class="bi bi-eye-fill"></i> View
                     </div>
@@ -769,37 +631,157 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title">Bat-Flappy</h5>
+                    <h4 class="card-title h5">Bat-Flappy</h4>
                     <p class="card-text">
                       A full flapper game made with Unity.<br/>
-                      Source code on <a href="https://github.com/sergiocastelani/flapper-orig" target="_blank">GitHub</a>.
+                      Source code on <a href="https://github.com/sergiocastelani/flapper-orig" target="_blank" rel="noopener">GitHub</a>.
                     </p>
-                    <p class="card-text"><small class="text-body-secondary">Unity | C# </small></p>
+                    <p class="card-text"><small class="text-body-secondary">Unity | C#</small></p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
-          <div class="col-12 col-lg-6">
-            <div class="card h-100">
-              <div class="row g-0 h-100">
-                <div 
-                  class="col-md-4 project-card-img" 
-                  style="background-image: url(./images/projects/dom_challenge.png);"
-                  onclick="window.open('https://sergiocastelani.github.io/dom_game/','_blank')"
-                >
-                  <div class="project-img-overlay">
-                    <div class="btn btn-dark">
-                      <i class="bi bi-eye-fill"></i> View
+        </div>
+
+        <div class="text-center mt-4">
+          <button id="more-projects-toggle" class="btn" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#more-projects"
+                  aria-expanded="false" aria-controls="more-projects">Show more projects</button>
+        </div>
+
+        <div id="more-projects" class="collapse">
+          <div class="row g-3 pt-4">
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="row g-0 h-100">
+                  <div
+                    class="col-md-4 project-card-img"
+                    role="link" tabindex="0" aria-label="Spider-man Fanpage live demo"
+                    style="background-image: url(./images/projects/spiderman.png);"
+                    onclick="window.open('https://sergiocastelani.github.io/spiderman-fanpage/','_blank')"
+                  >
+                    <div class="project-img-overlay" aria-hidden="true">
+                      <div class="btn btn-dark">
+                        <i class="bi bi-eye-fill"></i> View
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h4 class="card-title h5">Spider-man Fanpage</h4>
+                      <p class="card-text">A fanpage showcase with 3D elements.</p>
+                      <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | Threejs</small></p>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">DOM Challenge</h5>
-                    <p class="card-text">A mini game for students to pactice DOM manipulation.</p>
-                    <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | Animation | Collision detection</small></p>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="row g-0 h-100">
+                  <div
+                    class="col-md-4 project-card-img"
+                    role="link" tabindex="0" aria-label="Rick &amp; Morty API live demo"
+                    style="background-image: url(./images/projects/rickandmorty.png);"
+                    onclick="window.open('https://rickmorty.castelani.dev.br/','_blank')"
+                  >
+                    <div class="project-img-overlay" aria-hidden="true">
+                      <div class="btn btn-dark">
+                        <i class="bi bi-eye-fill"></i> View
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h4 class="card-title h5">Rick &amp; Morty API</h4>
+                      <p class="card-text">Front-end for the Rick &amp; Morty API.</p>
+                      <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | API</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="row g-0 h-100">
+                  <div
+                    class="col-md-4 project-card-img"
+                    role="link" tabindex="0" aria-label="Growflix live demo"
+                    style="background-image: url(./images/projects/growflix.png);"
+                    onclick="window.open('https://sergiocastelani.github.io/growflix/index.html','_blank')"
+                  >
+                    <div class="project-img-overlay" aria-hidden="true">
+                      <div class="btn btn-dark">
+                        <i class="bi bi-eye-fill"></i> View
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h4 class="card-title h5">Growflix</h4>
+                      <p class="card-text">Conceptual streaming page</p>
+                      <p class="card-text"><small class="text-body-secondary">HTML | CSS | Bootstrap | Javascript</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="row g-0 h-100">
+                  <div
+                    class="col-md-4 project-card-img"
+                    role="link" tabindex="0" aria-label="Nikel live demo"
+                    style="background-image: url(./images/projects/nikel.png);"
+                    onclick="window.open('https://castelani-nikel.netlify.app','_blank')"
+                  >
+                    <div class="project-img-overlay" aria-hidden="true">
+                      <div class="btn btn-dark">
+                        <i class="bi bi-eye-fill"></i> View
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h4 class="card-title h5">Nikel</h4>
+                      <p class="card-text">
+                        Final project for the course
+                        <a href="https://plataforma.growdev.com.br/curso/codai" target="_blank" rel="noopener">Codaí</a>
+                        from Growdev.<br/>
+                        Source code on <a href="https://github.com/sergiocastelani/growdev-nikel" target="_blank" rel="noopener">GitHub</a>.
+                      </p>
+                      <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | Bootstrap</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="row g-0 h-100">
+                  <div
+                    class="col-md-4 project-card-img"
+                    role="link" tabindex="0" aria-label="DOM Challenge live demo"
+                    style="background-image: url(./images/projects/dom_challenge.png);"
+                    onclick="window.open('https://sergiocastelani.github.io/dom_game/','_blank')"
+                  >
+                    <div class="project-img-overlay" aria-hidden="true">
+                      <div class="btn btn-dark">
+                        <i class="bi bi-eye-fill"></i> View
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h4 class="card-title h5">DOM Challenge</h4>
+                      <p class="card-text">A mini game for students to practice DOM manipulation.</p>
+                      <p class="card-text"><small class="text-body-secondary">HTML | CSS | Javascript | Animation | Collision detection</small></p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -807,6 +789,35 @@
           </div>
         </div>
       </div>
+    </section>
+    <script>
+      // Personal projects: Enter opens a project screenshot's demo (click is handled by its inline onclick),
+      // and the "More projects" toggle label follows the collapse state.
+      (() => {
+        const personalProjects = document.getElementById('projects-personal');
+        const moreProjects = document.getElementById('more-projects');
+        const moreProjectsToggle = document.getElementById('more-projects-toggle');
+        const SHOW_MORE_LABEL = 'Show more projects';
+        const SHOW_FEWER_LABEL = 'Show fewer projects';
+
+        personalProjects.addEventListener('keydown', (event) => {
+          if (event.key !== 'Enter' || event.repeat) return;
+          if (!event.target.matches('.project-card-img[role="link"]')) return;
+          event.preventDefault();
+          event.target.click();   // reuses the inline onclick, so the demo URL has one source
+        });
+
+        moreProjects.addEventListener('shown.bs.collapse', () => {
+          moreProjectsToggle.textContent = SHOW_FEWER_LABEL;
+        });
+        moreProjects.addEventListener('hidden.bs.collapse', () => {
+          moreProjectsToggle.textContent = SHOW_MORE_LABEL;
+        });
+      })();
+    </script>
+
+    <section id="education" class="page-section section-alt" aria-labelledby="education-heading">
+      <h2 id="education-heading" class="border-start border-5 border-primary ps-3 fw-bold mb-5">Education &amp; Languages</h2>
     </section>
 
     <footer class="mt-5 py-4 text-center">

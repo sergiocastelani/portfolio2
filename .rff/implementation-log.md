@@ -28,6 +28,8 @@ Deviations from a step file's implementation suggestions, as reported by its imp
 
 - (S09) CSS comment reworded to `/* brand accent; static, not interactive */` so the step's own hover/cursor grep check passes.
 
+- (S10) hashmarks.png deleted with a plain delete instead of `git rm`; committed by the checkpoint commit.
+
 ## Checks confirmed by the user
 - (S01) Check 8 (reduced motion jumps instantly), check 12 (nav "Main", section regions named by h2), check 15 (brand accessible name, spans not exposed).
 - (S02) Check 6 (LinkedIn/GitHub open in new tab; Email opens mail client with no empty tab).

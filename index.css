@@ -39,6 +39,7 @@ strong {
   border-radius: 50%;
 }
 
+/* Personal projects */
 .project-card-img {
   overflow: hidden;
   vertical-align: middle;
@@ -60,8 +61,20 @@ strong {
   align-items: center;
 }
 
-.project-img-overlay:hover {
+.project-img-overlay:hover,
+.project-card-img:focus-visible .project-img-overlay {
   opacity: 100%;
+}
+
+#more-projects-toggle {
+  --bs-btn-color: var(--my-primary-text);
+  --bs-btn-border-color: var(--my-primary-text);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: var(--my-primary-text);
+  --bs-btn-hover-border-color: var(--my-primary-text);
+  --bs-btn-active-color: var(--bs-white);
+  --bs-btn-active-bg: var(--my-primary-text);
+  --bs-btn-active-border-color: var(--my-primary-text);
 }
 
 /* Layout and navigation */
