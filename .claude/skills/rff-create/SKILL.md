@@ -1,76 +1,60 @@
 ---
 name: rff-create
-description: Turn a rough feature concept into a complete "request-for-feature.md" spec through a Q&A session. Use when the user says "grill me", wants to refine or flesh out a feature idea, or wants a feature request/spec written from a report file or from ideas discussed in the current session. Asks targeted questions with options, then writes the final markdown file where the user chooses.
+description: Turn a rough feature concept into a complete "request-for-feature.md" spec through a Q&A session. Use when the user says "grill me", wants to refine or flesh out a feature idea, or wants a feature request/spec written from a report file or from ideas discussed in the current session. Asks the user for a feature name, creates the feature folder ".rff/<feature-name>/" at the project root, asks targeted questions with options, then writes the final markdown file into that folder.
 argument-hint: "[path to report file | short description of the idea]"
 ---
 
 # rff-create
 
-Interview the user about a feature concept until it is clear enough to implement, then write `request-for-feature.md`.
+Interview the user about a feature until it can be implemented, then write `<feature-dir>/request-for-feature.md`.
+
+**Definitions.** `<project-root>` = output of `git rev-parse --show-toplevel`; without git, the working directory (or the parent of `.rff/` if the working directory is inside a `.rff/` folder). `<feature-dir>` = `<project-root>/.rff/<feature-name>/`. All rff skills (`rff-plan`, `rff-steps`, `rff-implement`) read and write only inside `<feature-dir>`.
+
+**Rules for every question:** use `AskUserQuestion`. Put your recommended option first, its label suffixed "(Recommended)". Make each question self-contained (the user may see only the dialog).
 
 ## 1. Gather the concept
 
-Find the source of the idea, in this order:
+1. Source, first match wins: `$ARGUMENTS` as a file path → read the whole file; `$ARGUMENTS` as text → that is the idea; no argument → the idea discussed earlier in this conversation; nothing found → ask the user for the idea or a report file.
+2. If the feature targets an available codebase (`<project-root>` or a path the user names), find files named `architecture.md` (case-insensitive; skip `.git/`, `node_modules/`, dependency and build folders):
+   - One found: ask to use it as the project reference. Yes → read it. No → step 3.
+   - Several found: ask which one (one option per path, plus "None, explore the code instead"). Read the chosen one, or go to step 3.
+   - None found: step 3.
+3. Without an architecture file, read the code relevant to the feature: structure, conventions, related features, tech stack. With one, still read the code areas the feature touches that the file does not cover.
+4. Show the user a 3–6 bullet summary of your understanding of the concept.
 
-1. **Argument given** (`$ARGUMENTS`): if it is a file path, read the whole file; otherwise treat it as the idea itself.
-2. **Current session**: if no argument, look back through this conversation for the feature idea being discussed.
-3. **Nothing found**: ask the user to describe the idea or point to a report file.
+## 2. Name the feature and create its folder
 
-If the idea targets a codebase that is available (the working directory or a path the user names), explore the relevant parts briefly (structure, conventions, related features, tech stack) so questions are grounded in what exists and options fit the current architecture. Do not ask things the code already answers.
+1. Ask for the feature name, offering 2–3 short names derived from the concept.
+2. Normalize it: strip accents, lowercase, turn spaces/underscores/other separators into single hyphens, drop characters outside `a-z0-9-`, trim leading/trailing hyphens ("New Feature" → `new-feature`). Tell the user the result.
+3. If `<feature-dir>` exists, ask: "Use the existing folder" (files are kept) or "Pick another name" (→ step 1).
+4. Create `<feature-dir>` (and `.rff/` if missing). Use it for the rest of the session without asking again.
 
-Then give the user a short summary (3 to 6 bullets) of your understanding of the concept, so misunderstandings surface early.
+## 3. List the open points
 
-## 2. Build the list of open points
+List what is unclear, missing, ambiguous or contradictory, in these areas (skip areas irrelevant to the feature): goal and users, success criteria; scope (in, out, MVP vs later); behavior (main/alternative flows, edge cases, empty and error states); UI/UX (location, layout, interactions, responsiveness, accessibility); data (fields, shape, validation, migration); integration (APIs, affected modules, backward compatibility); permissions and security; non-functional (performance, limits, offline, i18n, logging); testing and acceptance. Sort so points whose answers affect the most other decisions come first. Never list points the architecture file, the code or earlier answers already settle.
 
-Identify what is unclear, missing, ambiguous or contradictory. Check these areas and keep only the ones that matter for this feature:
+## 4. Q&A loop
 
-- **Goal and users**: problem solved, who uses it, success criteria
-- **Scope**: what is in, what is explicitly out, MVP versus later
-- **Behavior**: main flow, alternative flows, edge cases, empty and error states
-- **UI/UX**: where it lives, layout, interactions, responsiveness, accessibility
-- **Data**: what is stored, shape, validation, migration of existing data
-- **Integration**: APIs, services, existing modules affected, backward compatibility
-- **Permissions and security**: who can do what, sensitive data
-- **Non-functional**: performance, limits, offline, i18n, logging/analytics
-- **Testing and acceptance**: how we know it works
+Repeat rounds until an exit condition below is met:
 
-Prioritize: questions whose answers change many other decisions come first.
+1. Ask 1–4 related questions from the top of the list. Each has 2–4 concrete options with a one-line consequence or trade-off; prefer options that fit existing codebase patterns and say so. Use `multiSelect: true` when choices are not mutually exclusive.
+2. Record each decision with its rationale. Use a temporary log file to record that and delete it after the final result file (request-for-feature.md) is written.
+3. Update the list: remove resolved points; add follow-ups for vague answers, new ambiguities, or contradictions with earlier answers.
+4. After every 3rd round, tell the user what is settled and how many open points remain.
 
-## 3. Grill: the Q&A loop
+Exit conditions:
+- No point that blocks implementation remains → ask "Ready to write the spec?" with options "Write it now" / "Keep refining".
+- The user says they are done ("done", "write it", ...) → stop at once; remaining points go to "Open questions".
 
-Use the `AskUserQuestion` tool for every question round.
+## 5. Write `<feature-dir>/request-for-feature.md`
 
-- Ask **1 to 4 related questions per round**, highest-priority first.
-- Every question gets **2 to 4 concrete options**, each with a short description of its consequence or trade-off. Put your recommended option first and suffix its label with "(Recommended)". The user can always pick "Other" to answer freely.
-- Use `multiSelect: true` when choices are not mutually exclusive (e.g. which platforms, which fields).
-- Make each question self-contained: the user may only see the dialog.
-- After each round:
-  - Record the decisions (keep a running decision log in your head or in a scratch file).
-  - Re-evaluate: answers often resolve, remove, or spawn other open points. Ask follow-ups when an answer is vague or creates a new ambiguity. Challenge contradictions with earlier answers.
-- Every 2 or 3 rounds, briefly state what is now settled and roughly how many open points remain.
-
-**Ending the loop.** Stop when either:
-- All points that would block implementation are settled. Then ask one confirmation question ("Ready to write the spec?") with options like "Write it now" and "Keep refining".
-- The user says they are done (e.g. "done", "that's enough", "write it"). Stop immediately; any unresolved points go into the "Open questions" section of the spec, together with your recommended default.
-
-## 4. Choose the output location
-
-Ask the user where to save `request-for-feature.md` using `AskUserQuestion`. Offer sensible options, such as:
-- the current working directory (root of the project)
-- a `docs/` folder in the project (or an existing docs/specs folder if one exists)
-- next to the source report file, if there was one
-
-If a file with that name already exists at the chosen location, ask whether to overwrite it, or save with a suffix (e.g. `request-for-feature-<short-slug>.md`).
-
-## 5. Write `request-for-feature.md`
-
-Write it so a developer (or an agent) who never saw this conversation can implement the feature. Be concrete; use the user's decisions, not your guesses. Mark any assumption you made as an assumption. Omit sections that genuinely do not apply.
+If the file exists, ask: "Overwrite" or "Stop" (the user can rerun with another name). Write for a developer who never saw this conversation: concrete, based on the user's decisions; label every assumption "Assumption:". Write in the language the user used in the session. Omit sections that do not apply. Never add a requirement the user did not decide: ask, or record it as an assumption or open question.
 
 ```markdown
 # Feature Request: <Feature name>
 
 - **Date:** <YYYY-MM-DD>
-- **Source:** <report file path / current session>
+- **Source:** <report file path | current session>
 - **Status:** Ready for implementation | Draft (open questions remain)
 
 ## 1. Summary
@@ -120,11 +104,4 @@ Things discussed but deferred to later iterations. (Omit if none.)
 
 ## 6. Finish
 
-Tell the user the file path (as a clickable markdown link), give a 2 or 3 line summary of the spec, and list any open questions that remain.
-
-## Guidelines
-
-- Be a demanding but efficient interviewer: no filler questions, no questions the code or earlier answers already settle.
-- Prefer options that fit the existing codebase's patterns; say so in the option description.
-- Never invent requirements silently: either ask, or record it as an assumption / open question.
-- Write the spec in the same language the user used during the session, unless they ask otherwise.
+Give the user: the feature folder and a clickable markdown link to the file, a 2–3 line summary of the spec, the remaining open questions, and that `rff-plan` is the next step (it uses the same folder).
