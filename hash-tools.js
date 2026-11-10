@@ -17,6 +17,51 @@
   // Commands
   // Register each command here as: commands.<name> = function (params) { ... };
 
+  // highlight: marks the tech chips matching any term and scrolls to the first one.
+  // Link: #exec-highlight-<encodeURIComponent(JSON.stringify(["C++", "Qt"]))>
+  const CHIP_SELECTOR = '.skill-chip';
+  const CHIP_HIGHLIGHT_CLASS = 'skill-chip-highlight';  // look and navbar offset live in index.css /* Hash tools */
+  const MIN_PARTIAL_TERM_LENGTH = 3;                     // shorter terms ("Qt", "C#") must equal the whole label
+
+  /** term and label are already trimmed and lowercased. */
+  function chipLabelMatches(label, term) {
+    return term.length >= MIN_PARTIAL_TERM_LENGTH ? label.includes(term) : label === term;
+  }
+
+  commands.highlight = function (params) {
+    const terms = params.map((param) => param.trim().toLowerCase());
+    const termMatched = terms.map(() => false);
+    let firstMatch = null;
+
+    document.querySelectorAll(CHIP_SELECTOR).forEach((chip) => {
+      const label = chip.textContent.trim().toLowerCase();
+      let isMatch = false;
+      // No early break: a term that only matches chips an earlier term matched must still count as matched.
+      terms.forEach((term, i) => {
+        if (chipLabelMatches(label, term)) {
+          termMatched[i] = true;
+          isMatch = true;
+        }
+      });
+      chip.classList.toggle(CHIP_HIGHLIGHT_CLASS, isMatch);  // also clears highlights from a previous call
+      if (isMatch && firstMatch === null) firstMatch = chip;
+    });
+
+    if (params.length === 0) {
+      warn('highlight: no terms given, highlight cleared');
+      return;
+    }
+
+    termMatched.forEach((matched, i) => {
+      if (!matched) warn(`highlight: no chip matches "${params[i]}"`);
+    });
+
+    // No behavior option: the reduced-motion html rule in index.css decides smooth or instant.
+    // Wait for webfonts: a late icon-font load shrinks the sections above the chip, and a smooth
+    // scroll already under way keeps its old target, leaving the chip under the navbar.
+    if (firstMatch !== null) document.fonts.ready.then(() => firstMatch.scrollIntoView({ block: 'start' }));
+  };
+
   // Router
 
   /** @returns {{ name: string, rawParams: string | null } | null} null when the hash is not an exec hash. */
