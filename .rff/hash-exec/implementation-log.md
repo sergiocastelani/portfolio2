@@ -5,8 +5,8 @@
 
 | Step | File | Status | Rounds | Checkpoint | Notes |
 |------|------|--------|--------|-----------|-------|
-| S01 | [step-01.md](step-01.md) | done | 1 | (pending commit) | no deviations; no needs-human checks |
-| S02 | [step-02.md](step-02.md) | pending | 0 | - | - |
+| S01 | [step-01.md](step-01.md) | done | 1 | `6156686` | no deviations; no needs-human checks |
+| S02 | [step-02.md](step-02.md) | done | 1 | (pending commit) | no deviations; reduced-motion check was marked needs-human by the implementer but verified by the reviewer via CDP emulation, so nothing deferred |
 | S03 | [step-03.md](step-03.md) | pending | 0 | - | - |
 
 Status: pending | in-progress | done | skipped | blocked
