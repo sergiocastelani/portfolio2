@@ -16,6 +16,7 @@
 
   // Commands
   // Register each command here as: commands.<name> = function (params) { ... };
+  // Also describe each command for AI agents in <div id="agent-instructions"> at the top of index.html.
 
   // highlight: marks the tech chips matching any term and scrolls to the first one.
   // Link: #exec-highlight-<encodeURIComponent(JSON.stringify(["C++", "Qt"]))>
