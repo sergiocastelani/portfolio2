@@ -277,6 +277,13 @@ section[id] {
   color: var(--my-primary-text);
 }
 
+/* Hash tools */
+.skill-chip.skill-chip-highlight {
+  color: #fff;                                             /* 5.85:1 on --my-primary-text */
+  background-color: var(--my-primary-text);
+  scroll-margin-top: calc(var(--main-nav-height) + 1rem);  /* land below the sticky navbar, like section headings */
+}
+
 /* Bootstrap overrides */
 .btn-primary {
   background-color: var(--my-primary) !important;
